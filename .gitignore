@@ -34,3 +34,6 @@ coverage/
 
 # impeccable 本地工作区(证据截图/契约/评审,不入库)
 .impeccable/
+
+# 自动化流水线状态(不入库)
+.automation/
