@@ -12,7 +12,7 @@ import {
   isIeltsScores,
   type EssayReviewData,
 } from '@/schemas/grading'
-import { AiNotConfiguredError, loadAiConfig } from '@/api/ai-client'
+import { AiNotConfiguredError } from '@/api/ai-client'
 import { gradeEssay } from '@/api/grading'
 import i18n from '@/i18n'
 import './writing.css'
@@ -83,16 +83,16 @@ export default function WritingReportPage() {
     if (!essay) return
     setRegrading(true)
     try {
-      const config = await loadAiConfig()
       const examType = topic?.examType ?? 'ielts_t2'
       const promptText = topic?.prompt ?? essay.prompt ?? ''
-      const res = await gradeEssay(config, examType, promptText, essay.content, i18n.language)
+      const res = await gradeEssay(examType, promptText, essay.content, i18n.language)
       const now = new Date().toISOString()
+      const modelLabel = 'local-direct'
       if (res.ok) {
         await db.essayReviews.put({
           id: newId(),
           essayId: essay.id,
-          model: config.model,
+          model: modelLabel,
           scores: res.data.scores,
           overall: res.data.overall,
           feedback: res.data,
@@ -104,7 +104,7 @@ export default function WritingReportPage() {
         await db.essayReviews.put({
           id: newId(),
           essayId: essay.id,
-          model: config.model,
+          model: modelLabel,
           scores: {},
           overall: 0,
           feedback: { degraded: true, raw: res.rawText },

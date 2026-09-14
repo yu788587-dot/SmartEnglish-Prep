@@ -6,8 +6,9 @@ import { ArrowLeftOutlined } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import { db, LOCAL_USER_ID, newId } from '@/db'
 import { ensureSeeded } from '@/db/seed'
-import { AiNotConfiguredError, loadAiConfig } from '@/api/ai-client'
+import { AiNotConfiguredError } from '@/api/ai-client'
 import { gradeEssay } from '@/api/grading'
+import { useSettings } from '@/stores/settings'
 import { EXAM_MIN_WORDS, EXAM_TARGET_RANGE } from '@/schemas/grading'
 import i18n from '@/i18n'
 import './writing.css'
@@ -116,15 +117,15 @@ export default function WritingEditorPage() {
     await save(text)
     setGrading(true)
     try {
-      const config = await loadAiConfig()
-      const res = await gradeEssay(config, topic.examType, topic.prompt, text, i18n.language)
+      const res = await gradeEssay(topic.examType, topic.prompt, text, i18n.language)
       const now = new Date().toISOString()
       const reviewId = newId()
+      const modelLabel = useSettings.getState().aiMode === 'server' ? 'server-proxy' : 'local-direct'
       if (res.ok) {
         await db.essayReviews.put({
           id: reviewId,
           essayId: essayIdRef.current!,
-          model: config.model,
+          model: modelLabel,
           scores: res.data.scores,
           overall: res.data.overall,
           feedback: res.data,
@@ -135,7 +136,7 @@ export default function WritingEditorPage() {
         await db.essayReviews.put({
           id: reviewId,
           essayId: essayIdRef.current!,
-          model: config.model,
+          model: modelLabel,
           scores: {},
           overall: 0,
           feedback: { degraded: true, raw: res.rawText },

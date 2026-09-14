@@ -296,6 +296,14 @@
     "title": "设置",
     "general": "通用",
     "language": "界面语言",
+    "mode": {
+      "title": "AI 接入模式",
+      "hint": "本地模式:AI 直连你配置的服务;服务器模式:请求经 FastAPI 代理(服务器持有 Key)。服务器不可达时自动回落本地。",
+      "local": "本地直连",
+      "server": "服务器代理",
+      "serverUrl": "服务器地址",
+      "serverHint": "需要后端已启动并配置 SEP_AI_* 环境变量。"
+    },
     "ai": "AI 服务配置",
     "aiHint": "支持任意 OpenAI 兼容服务(DeepSeek、SiliconFlow、通义、Kimi、Ollama 等)。Key 仅保存在你的设备本地。",
     "preset": "服务商预设",

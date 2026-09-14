@@ -6,7 +6,7 @@ import { ArrowLeftOutlined } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import { db, LOCAL_USER_ID, newId } from '@/db'
 import { ensureSeeded } from '@/db/seed'
-import { AiNotConfiguredError, loadAiConfig } from '@/api/ai-client'
+import { AiNotConfiguredError } from '@/api/ai-client'
 import { gradeTranslation } from '@/api/translation'
 import {
   translationFeedbackSchema,
@@ -85,8 +85,7 @@ export default function TranslationWorkPage() {
     }
     setGrading(true)
     try {
-      const config = await loadAiConfig()
-      const res = await gradeTranslation(config, sourceText, refTranslation, text, i18n.language)
+      const res = await gradeTranslation(sourceText, refTranslation, text, i18n.language)
       const now = new Date().toISOString()
       const recordId = newId()
       if (res.ok) {

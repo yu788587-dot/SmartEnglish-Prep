@@ -9,8 +9,8 @@ import {
   getBuiltInRole,
   type TutorMessage,
 } from '@/schemas/roles'
-import { AiNotConfiguredError, loadAiConfig } from '@/api/ai-client'
-import { chatStream } from '@/api/ai-client'
+import { AiNotConfiguredError } from '@/api/ai-client'
+import { gatewayChatStream } from '@/api/gateway'
 import { db, LOCAL_USER_ID } from '@/db'
 import i18n from '@/i18n'
 import './tutor.css'
@@ -88,9 +88,7 @@ export default function TutorDrawer({ open, onClose }: Props) {
     setBusy(true)
     setStreaming('')
     try {
-      const config = await loadAiConfig()
-      const full = await chatStream(
-        config,
+      const full = await gatewayChatStream(
         [
           { role: 'system', content: system },
           ...history.slice(-10).map((m) => ({ role: m.role, content: m.content })),

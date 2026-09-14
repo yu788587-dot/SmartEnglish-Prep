@@ -5,7 +5,7 @@ import {
   type LensMode,
   type LensResult,
 } from '@/schemas/lens'
-import { chatJson, type AiConfig } from './ai-client'
+import { gatewayChatJson } from './gateway'
 
 function modeInstruction(mode: LensMode, selected: string, uiLang: string): string {
   const replyLang = uiLang === 'zh-CN' ? 'Simplified Chinese' : 'English'
@@ -33,7 +33,6 @@ Your JSON must be directly parseable: no markdown fences, no commentary before o
  * JSON 校验失败重试一次;仍失败则降级返回原始文本(前端以纯文本渲染)。
  */
 export async function lensLookup(
-  config: AiConfig,
   selected: string,
   uiLang: string,
   signal?: AbortSignal,
@@ -43,7 +42,7 @@ export async function lensLookup(
     { role: 'system', content: SYSTEM_PROMPT },
     { role: 'user', content: modeInstruction(mode, selected, uiLang) },
   ]
-  const res = await chatJson(config, messages, lensResultSchema, { signal, temperature: 0.2 })
+  const res = await gatewayChatJson(messages, lensResultSchema, { signal, temperature: 0.2 })
   if (res.ok) return { ok: true, result: res.data }
   return { ok: false, rawText: res.rawText }
 }

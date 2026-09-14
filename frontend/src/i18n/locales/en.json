@@ -296,6 +296,14 @@
     "title": "Settings",
     "general": "General",
     "language": "Language",
+    "mode": {
+      "title": "AI access mode",
+      "hint": "Local: the AI is called directly from this device with your key. Server: requests go through the FastAPI proxy holding the server-side key. If the server is unreachable, local mode is used automatically.",
+      "local": "Local direct",
+      "server": "Server proxy",
+      "serverUrl": "Server URL",
+      "serverHint": "Requires the backend running with SEP_AI_* environment variables set."
+    },
     "ai": "AI Service",
     "aiHint": "Works with any OpenAI-compatible service (DeepSeek, SiliconFlow, Qwen, Kimi, Ollama...). Your key never leaves this device.",
     "preset": "Provider preset",

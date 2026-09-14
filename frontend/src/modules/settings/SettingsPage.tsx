@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Button, Card, Form, Input, Select, Typography, message } from 'antd'
+import { Button, Card, Form, Input, Radio, Select, Typography, message } from 'antd'
 import { useTranslation } from 'react-i18next'
 import i18n from '@/i18n'
 import { db } from '@/db'
+import { useSettings, type AiMode } from '@/stores/settings'
 import { aiConfigSchema, type AiConfig, PROVIDER_PRESETS } from '@/schemas/ai-config'
 
 const AI_SETTINGS_KEY = 'ai'
@@ -14,6 +15,10 @@ export default function SettingsPage() {
   const [form] = Form.useForm<AiConfig>()
   const [preset, setPreset] = useState<PresetKey>('deepseek')
   const [loading, setLoading] = useState(true)
+  const aiMode = useSettings((s) => s.aiMode)
+  const setAiMode = useSettings((s) => s.setAiMode)
+  const serverBaseUrl = useSettings((s) => s.serverBaseUrl)
+  const setServerBaseUrl = useSettings((s) => s.setServerBaseUrl)
 
   useEffect(() => {
     void (async () => {
@@ -50,13 +55,42 @@ export default function SettingsPage() {
 
   return (
     <div style={{ maxWidth: 640 }}>
-      <Card title={t('settings.ai')} style={{ marginBottom: 16 }}>
+      <Card title={t('settings.mode.title')} style={{ marginBottom: 16 }}>
+        <Typography.Paragraph type="secondary">{t('settings.mode.hint')}</Typography.Paragraph>
+        <Radio.Group
+          value={aiMode}
+          onChange={(e) => setAiMode(e.target.value as AiMode)}
+          options={[
+            { value: 'local', label: t('settings.mode.local') },
+            { value: 'server', label: t('settings.mode.server') },
+          ]}
+        />
+        {aiMode === 'server' && (
+          <div style={{ marginTop: 12 }}>
+            <Typography.Text type="secondary">{t('settings.mode.serverUrl')}:</Typography.Text>
+            <Input
+              value={serverBaseUrl}
+              onChange={(e) => setServerBaseUrl(e.target.value)}
+              placeholder="http://localhost:8000"
+              style={{ marginTop: 4 }}
+            />
+            <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+              {t('settings.mode.serverHint')}
+            </Typography.Text>
+          </div>
+        )}
+      </Card>
+
+      <Card
+        title={t('settings.ai')}
+        style={{ marginBottom: 16, opacity: aiMode === 'server' ? 0.65 : 1 }}
+      >
         <Typography.Paragraph type="secondary">{t('settings.aiHint')}</Typography.Paragraph>
         <Form
           form={form}
           layout="vertical"
           onFinish={onFinish}
-          disabled={loading}
+          disabled={loading || aiMode === 'server'}
           initialValues={{ baseUrl: PROVIDER_PRESETS.deepseek.baseUrl, model: PROVIDER_PRESETS.deepseek.model }}
         >
           <Form.Item label={t('settings.preset')} style={{ marginBottom: 16 }}>

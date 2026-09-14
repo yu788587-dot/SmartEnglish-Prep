@@ -1,6 +1,6 @@
 import type { ChatMessage } from './ai-client'
 import { translationFeedbackSchema, type TranslationFeedback } from '@/schemas/translation'
-import { chatJson, type AiConfig } from './ai-client'
+import { gatewayChatJson } from './gateway'
 
 const SYSTEM = `You are a CET (College English Test) translation examiner. The candidate translated a Chinese paragraph into English. You receive the source text, the official reference translation, and the candidate's translation.
 Compare sentence by sentence against the reference, but judge quality on meaning fidelity and natural English, not on matching the reference word for word.
@@ -36,7 +36,6 @@ Rules:
 
 /** 翻译批改主入口;JSON 校验失败重试一次,仍失败降级为纯文本。 */
 export async function gradeTranslation(
-  config: AiConfig,
   sourceText: string,
   refTranslation: string,
   userTranslation: string,
@@ -47,7 +46,7 @@ export async function gradeTranslation(
     { role: 'system', content: SYSTEM },
     { role: 'user', content: userInstruction(sourceText, refTranslation, userTranslation, uiLang) },
   ]
-  const res = await chatJson(config, messages, translationFeedbackSchema, {
+  const res = await gatewayChatJson(messages, translationFeedbackSchema, {
     signal,
     temperature: 0.2,
   })

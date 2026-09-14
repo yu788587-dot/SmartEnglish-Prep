@@ -1,6 +1,6 @@
 import type { ChatMessage } from './ai-client'
 import { essayReviewDataSchema, type EssayReviewData } from '@/schemas/grading'
-import { chatJson, type AiConfig } from './ai-client'
+import { gatewayChatJson } from './gateway'
 
 const IELTS_SYSTEM = `You are an IELTS Writing Task 2 examiner. Grade the essay strictly against the official band descriptors:
 - TR (Task Response): fully addresses all parts; clear position; well-developed ideas.
@@ -56,7 +56,6 @@ Rules:
  * JSON 校验失败重试一次;仍失败则降级返回原始文本(报告页以纯文本渲染)。
  */
 export async function gradeEssay(
-  config: AiConfig,
   examType: string,
   promptText: string,
   essay: string,
@@ -67,7 +66,7 @@ export async function gradeEssay(
     { role: 'system', content: examType.startsWith('ielts') ? IELTS_SYSTEM : CET_SYSTEM },
     { role: 'user', content: userInstruction(examType, promptText, essay, uiLang) },
   ]
-  const res = await chatJson(config, messages, essayReviewDataSchema, {
+  const res = await gatewayChatJson(messages, essayReviewDataSchema, {
     signal,
     temperature: 0.2,
   })

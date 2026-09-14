@@ -5,7 +5,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
+from app.api.ai import router as ai_router
+from app.api.data import router as data_router
 from app.api.health import router as health_router
+from app.api.questions import router as questions_router
 from app.core.config import settings
 from app.database import Base, SessionLocal, engine
 from app.models import entities  # noqa: F401  确保模型注册到 Base.metadata
@@ -41,3 +44,6 @@ app.add_middleware(
 )
 
 app.include_router(health_router, prefix="/api")
+app.include_router(ai_router, prefix="/api/ai", tags=["ai"])
+app.include_router(questions_router, prefix="/api/questions", tags=["questions"])
+app.include_router(data_router, prefix="/api", tags=["data"])

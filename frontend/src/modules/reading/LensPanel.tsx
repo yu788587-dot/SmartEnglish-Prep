@@ -4,7 +4,7 @@ import { BookOutlined, CloseOutlined, EnvironmentOutlined } from '@ant-design/ic
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { db, LOCAL_USER_ID, newId } from '@/db'
-import { AiNotConfiguredError, loadAiConfig } from '@/api/ai-client'
+import { AiNotConfiguredError } from '@/api/ai-client'
 import { lensLookup } from '@/api/lens'
 import type { LensResult } from '@/schemas/lens'
 import i18n from '@/i18n'
@@ -50,8 +50,7 @@ export default function LensLayer({ selection, onClose }: Props) {
     void (async () => {
       setState({ status: 'loading' })
       try {
-        const config = await loadAiConfig()
-        const res = await lensLookup(config, selection!.text, i18n.language)
+        const res = await lensLookup(selection!.text, i18n.language)
         if (runIdRef.current !== runId) return
         setState(
           res.ok ? { status: 'result', result: res.result } : { status: 'degraded', rawText: res.rawText },
