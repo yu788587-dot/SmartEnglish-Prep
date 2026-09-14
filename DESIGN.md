@@ -252,6 +252,8 @@ SmartEnglish-Prep 的界面是一间安静的纸上书房:阅读练习发生在�
 
 **状态随路由复位法则 (Route-State Reset).** 同一路由模式承载不同实体(如 /translation/work/:id)时,id 变化不重挂载组件——必须在 id 变化时显式复位草稿、标记与反馈状态;M4 判例:draftTouched 残留吞掉了历史练习的回填。
 
+**大字随听法则 (The Now-Sentence Rule).** 听力面的一切层级由"当前句"决定:当前句 21px 衬线居中,前后句压为上下文,字幕目录做索引——控件可以多,焦点只能有一个(M5)。
+
 ## Do's and Don'ts
 
 ### Do:

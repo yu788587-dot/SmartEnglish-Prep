@@ -26,8 +26,9 @@ const WritingReportPage = lazy(() => import('@/modules/writing/WritingReportPage
 const DataPage = lazy(() => import('@/modules/data/DataPage'))
 const TranslationListPage = lazy(() => import('@/modules/translation/TranslationListPage'))
 const TranslationWorkPage = lazy(() => import('@/modules/translation/TranslationWorkPage'))
+const ListeningListPage = lazy(() => import('@/modules/listening/ListeningListPage'))
+const ListeningWorkPage = lazy(() => import('@/modules/listening/ListeningWorkPage'))
 const SettingsPage = lazy(() => import('@/modules/settings/SettingsPage'))
-const PlaceholderPage = lazy(() => import('@/components/PlaceholderPage'))
 
 const NAV_KEYS = [
   'dashboard',
@@ -196,11 +197,6 @@ function Shell({ children }: { children: React.ReactNode }) {
   )
 }
 
-/** PlaceholderPage 需要 moduleKey;用路由参数适配 */
-function PlaceholderWithKey({ moduleKey }: { moduleKey: string }) {
-  return <PlaceholderPage moduleKey={moduleKey} />
-}
-
 export default function App() {
   return (
     <HashRouter>
@@ -216,7 +212,8 @@ export default function App() {
           <Route path="/data" element={<DataPage />} />
           <Route path="/translation" element={<TranslationListPage />} />
           <Route path="/translation/work/:id" element={<TranslationWorkPage />} />
-          <Route path="/listening" element={<PlaceholderWithKey moduleKey="listening" />} />
+          <Route path="/listening" element={<ListeningListPage />} />
+          <Route path="/listening/work/:id" element={<ListeningWorkPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

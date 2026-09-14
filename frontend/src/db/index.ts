@@ -3,6 +3,7 @@ import type {
   AiConversation,
   Essay,
   EssayReview,
+  ListeningMaterial,
   Passage,
   PracticeRecord,
   Question,
@@ -33,6 +34,7 @@ export const db = new Dexie('SmartEnglishPrep') as Dexie & {
   studySessions: EntityTable<StudySession, 'id'>
   aiConversations: EntityTable<AiConversation, 'id'>
   settings: EntityTable<Setting, 'key'>
+  listeningMaterials: EntityTable<ListeningMaterial, 'id'>
 }
 
 db.version(1).stores({
@@ -66,6 +68,24 @@ db.version(2).stores({
   studySessions: 'id, userId, module, startAt',
   aiConversations: 'id, userId, roleMode, updatedAt',
   settings: 'key',
+})
+
+// v3:听力素材表(M5,音频 Blob 仅存本地)
+db.version(3).stores({
+  passages: 'id, module, level, createdAt',
+  questions: 'id, passageId, type',
+  topics: 'id, examType, category',
+  translationTopics: 'id',
+  essays: 'id, userId, topicId, createdAt',
+  essayReviews: 'id, essayId, createdAt',
+  practiceRecords: 'id, userId, questionId, passageId, module, isCorrect, createdAt',
+  wrongQuestions: 'id, recordId, questionId, nextReviewAt, resolved',
+  translationExercises: 'id, userId, createdAt',
+  notes: 'id, userId, word, createdAt',
+  studySessions: 'id, userId, module, startAt',
+  aiConversations: 'id, userId, roleMode, updatedAt',
+  settings: 'key',
+  listeningMaterials: 'id, userId, createdAt',
 })
 
 /** 单用户模式下的固定 user_id,为多用户扩展预留。 */

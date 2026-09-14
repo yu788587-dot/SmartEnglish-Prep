@@ -37,6 +37,40 @@
     "resolve": "已掌握",
     "hint": "还有 {{n}} 道错题待重刷;重刷或标记已掌握后销账。"
   },
+  "listening": {
+    "list": {
+      "title": "听力 · 精听",
+      "subtitle": "导入你自己的音频与字幕(SRT 或每行一句),做逐句精听:倍速、AB 循环、句级定位。",
+      "materials": "我的材料",
+      "cues": "句",
+      "empty": "还没有听力材料。导入一段音频和字幕开始精听。"
+    },
+    "import": {
+      "title": "导入材料",
+      "titlePlaceholder": "材料标题(如:剑桥句型精听 01)",
+      "chooseAudio": "选择音频文件",
+      "needAudio": "请先选择音频文件",
+      "needTitle": "请填写材料标题",
+      "needSubtitle": "请粘贴字幕(SRT 或每行一句的文本)",
+      "subtitleHint": "字幕支持 SRT 格式,或每行一句的纯文本(文本行可用“钉起点”在播放中标注起点)。音频仅保存在本机,不会上传。",
+      "subtitlePlaceholder": "1\n00:00:01,000 --> 00:00:04,000 Hello and welcome…\n00:00:04,500 --> 00:00:08,000 Today we begin with…\n或每行一句文本",
+      "save": "保存材料"
+    },
+    "work": {
+      "back": "材料",
+      "prevSentence": "上一句",
+      "nextSentence": "下一句",
+      "setA": "设 A",
+      "setB": "设 B",
+      "loopSentence": "循环本句",
+      "clearLoop": "清除",
+      "cueList": "字幕目录",
+      "unpinned": "未钉",
+      "pin": "钉起点",
+      "pressPlay": "按播放开始精听;字幕会跟随进度逐句定位。",
+      "hint": "提示:循环本句 = 把 A/B 钉在当前句两端;纯文本字幕先用“钉起点”标注每句起点,即可句级循环。练习时长自动计入台账。"
+    }
+  },
   "data": {
     "title": "数据管理",
     "subtitle": "导出与导入你的全部学习数据:JSON 是机器权威格式(可完整恢复),xlsx 是给人看的报表。",

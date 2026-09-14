@@ -82,6 +82,23 @@ export interface WrongQuestion {
   resolved: boolean
 }
 
+export interface ListeningCue {
+  start: number | null // 秒;纯文本字幕未钉起点时为 null
+  end: number | null
+  text: string
+}
+
+export interface ListeningMaterial {
+  id: string
+  userId: string
+  title: string
+  audioName: string
+  audioBlob: Blob // 仅存本地设备;体积原因不进 JSON 备份
+  durationS: number | null
+  cues: ListeningCue[]
+  createdAt: string
+}
+
 export interface TranslationTopic {
   id: string
   title: string

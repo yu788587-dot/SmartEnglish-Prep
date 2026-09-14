@@ -37,6 +37,40 @@
     "resolve": "Mastered",
     "hint": "{{n}} wrong questions awaiting review; retry or mark mastered to clear them."
   },
+  "listening": {
+    "list": {
+      "title": "Listening · Intensive",
+      "subtitle": "Import your own audio with subtitles (SRT or one sentence per line) for intensive listening: speed, AB loop, sentence seeking.",
+      "materials": "My materials",
+      "cues": "cues",
+      "empty": "No materials yet. Import an audio file and subtitles to start."
+    },
+    "import": {
+      "title": "Import material",
+      "titlePlaceholder": "Material title (e.g. Intensive 01)",
+      "chooseAudio": "Choose audio file",
+      "needAudio": "Choose an audio file first",
+      "needTitle": "Give the material a title",
+      "needSubtitle": "Paste subtitles (SRT or one sentence per line)",
+      "subtitleHint": "Subtitles accept SRT, or plain text with one sentence per line (pin each sentence's start while playing). Audio stays on this device and is never uploaded.",
+      "subtitlePlaceholder": "1\n00:00:01,000 --> 00:00:04,000 Hello and welcome…\n00:00:04,500 --> 00:00:08,000 Today we begin with…\nor one sentence per line",
+      "save": "Save material"
+    },
+    "work": {
+      "back": "Materials",
+      "prevSentence": "Prev",
+      "nextSentence": "Next",
+      "setA": "Set A",
+      "setB": "Set B",
+      "loopSentence": "Loop sentence",
+      "clearLoop": "Clear",
+      "cueList": "Cue list",
+      "unpinned": "unpinned",
+      "pin": "Pin start",
+      "pressPlay": "Press play to start; subtitles follow the progress sentence by sentence.",
+      "hint": "Tip: Loop sentence pins A/B to the current cue; for plain-text subtitles pin each start first. Session time is tracked automatically."
+    }
+  },
   "data": {
     "title": "Data",
     "subtitle": "Export and import all of your study data: JSON is the machine-authoritative format (full restore), xlsx is a human-readable report.",
