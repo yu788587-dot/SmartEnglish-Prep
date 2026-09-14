@@ -42,9 +42,9 @@ jobs:
             --title "SmartEnglish-Prep ${TAG}" \
             --notes "AI-powered IELTS / CET prep platform · AI 驱动的雅思/四六级备考平台
 
-  Download the APK below (debug-signed, sideload-ready: allow install from unknown sources, then open).
-  下载下方 APK 即可安装(调试签名,允许安装未知来源应用后打开)。
+          Download the APK below (debug-signed, sideload-ready: allow install from unknown sources, then open).
+          下载下方 APK 即可安装(调试签名,允许安装未知来源应用后打开)。
 
-  - All data stays on your device; configure your AI key in Settings after first launch.
-  - 所有数据保存在设备本地;首次启动后在设置页配置 AI Key。
-  - Desktop use: npm ci && npm run dev (or host frontend/dist anywhere)."
+          - All data stays on your device; configure your AI key in Settings after first launch.
+          - 所有数据保存在设备本地;首次启动后在设置页配置 AI Key。
+          - Desktop use: npm ci && npm run dev (or host frontend/dist anywhere)."
