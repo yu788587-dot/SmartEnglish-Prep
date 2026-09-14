@@ -246,6 +246,8 @@ SmartEnglish-Prep 的界面是一间安静的纸上书房:阅读练习发生在�
 ### Named Rules
 **单次编排法则 (The One Orchestrated Moment Rule).** 透视镜入场是页面唯一的编排动效;其余一切过渡都是 160–240ms 的状态反馈(悬停 160ms、进度条 240ms)。
 
+**变形动画法则 (Transform, Never Layout).** 数值驱动的视觉变化(7 日条带、进度条)只动 transform 与 opacity,绝不动 width/height/margin——布局属性动画是检测器判例(data.css week-bar,M3 改为固定轨道 + scaleY,bottom 原点)。
+
 **Token 全局法则 (The World Token Rule).** 设计 token(:root 变量)与浏览器原生面主题只住在全局 index.css——任何惰性模块(路由级 chunk)都无权私有世界变量;M2 判例:写作页曾因 :root 定义在 reading.css 而丢掉全部变量(胡桃木条隐形、衬线回退)。
 
 ## Do's and Don'ts

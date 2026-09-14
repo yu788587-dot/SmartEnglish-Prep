@@ -9,7 +9,84 @@
     "writing": "写作",
     "translation": "翻译",
     "listening": "听力",
+    "data": "数据",
     "settings": "设置"
+  },
+  "dashboard": {
+    "title": "仪表盘",
+    "subtitle": "你的学习台账:正确率、写作均分、生词与时长,全部存在本地设备上。",
+    "readingAccuracy": "阅读正确率",
+    "writingAvg": "写作平均分",
+    "noteCount": "生词总量",
+    "totalTime": "累计学习时长",
+    "last7": "最近 7 天 · 每日分钟",
+    "wrongBook": "错题本",
+    "weekday": {
+      "0": "日",
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六"
+    }
+  },
+  "wrongbook": {
+    "empty": "错题本是空的——去阅读里刷几篇吧。",
+    "retry": "重刷",
+    "resolve": "已掌握",
+    "hint": "还有 {{n}} 道错题待重刷;重刷或标记已掌握后销账。"
+  },
+  "data": {
+    "title": "数据管理",
+    "subtitle": "导出与导入你的全部学习数据:JSON 是机器权威格式(可完整恢复),xlsx 是给人看的报表。",
+    "export": {
+      "title": "导出",
+      "hint": "JSON 备份包含全部数据,可用于跨设备迁移与恢复;出于隐私,API Key 不会随备份导出。",
+      "json": "下载 JSON 备份",
+      "xlsx": "下载 xlsx 报表",
+      "preview": "预览 JSON(前 2 万字符)"
+    },
+    "import": {
+      "title": "导入",
+      "hint": "选择或粘贴 JSON 备份。导入前会逐条校验;校验失败时整体拒绝、不会写入半截数据。",
+      "chooseFile": "选择 JSON 文件",
+      "pastePlaceholder": "或在此粘贴备份 JSON 的完整内容…",
+      "strategy": "冲突策略",
+      "skip": "跳过已有",
+      "overwrite": "覆盖导入",
+      "start": "开始导入",
+      "noInput": "请先选择文件或粘贴 JSON",
+      "parseFailed": "JSON 解析失败:{{reason}}",
+      "rejected": "备份未通过校验,已拒绝导入(逐条原因):",
+      "outcome": "导入完成",
+      "table": "数据表",
+      "found": "备份中",
+      "written": "写入",
+      "skippedCol": "跳过",
+      "done": "导入完成"
+    },
+    "tables": {
+      "passages": "文章",
+      "questions": "题目",
+      "topics": "写作话题",
+      "essays": "作文",
+      "essayReviews": "作文批改",
+      "practiceRecords": "练习记录",
+      "wrongQuestions": "错题",
+      "translationExercises": "翻译练习",
+      "notes": "生词",
+      "studySessions": "学习时长",
+      "aiConversations": "助教会话",
+      "settings": "设置"
+    },
+    "danger": {
+      "title": "危险区",
+      "hint": "清空全部学习数据(作文、记录、错题、生词、时长);内置题库与设置会保留。清空后可用 JSON 备份恢复。",
+      "confirm": "确定清空全部学习数据?此操作不可撤销(除非已有备份)。",
+      "action": "清空学习数据",
+      "done": "已清空学习数据"
+    }
   },
   "placeholder": {
     "title": "建设中",

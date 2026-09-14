@@ -14,8 +14,8 @@ Local-first · Works in browser & on Android (APK) · Bring your own LLM key
 
 | Module / 模块 | Status | Description / 说明 |
 | --- | --- | --- |
-| Reading 阅读 | 🔜 M1 | 题型练习 + “阅读透视镜”:选中单词/长句即得 AI 解释与翻译 |
-| Writing 写作 | 🔜 M2 | AI 批改:雅思 TR/CC/LR/GRA 四维评分,CET 档位评分,逐句高亮润色 |
+| Reading 阅读 | ✅ M1 | 题型练习 + “阅读透视镜”:选中单词/长句即得 AI 解释与翻译 |
+| Writing 写作 | ✅ M2 | AI 批改:雅思 TR/CC/LR/GRA 四维评分,CET 档位评分,逐句高亮润色 |
 | Data 数据管理 | 🔜 M3 | 错题本、学习时长统计、JSON/xlsx 导入导出(带校验与事务回滚) |
 | Translation 翻译 | 🔜 M4 | 中英对照练习,AI 偏差高亮与表达优化 |
 | Listening 听力 | 🔜 M5 | 倍速/AB 循环/逐句精听,字幕对照 |

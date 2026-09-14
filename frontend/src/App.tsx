@@ -4,6 +4,7 @@ import { Button, Drawer, Grid, Layout, Menu, Select, Spin } from 'antd'
 import {
   BarChartOutlined,
   CustomerServiceOutlined,
+  DatabaseOutlined,
   EditOutlined,
   MenuOutlined,
   ReadOutlined,
@@ -16,15 +17,25 @@ import { SERIF_FONT } from './theme/tokens'
 
 const { Sider, Header, Content } = Layout
 
-const DashboardPage = lazy(() => import('@/components/PlaceholderPage'))
+const DashboardPage = lazy(() => import('@/modules/dashboard/DashboardPage'))
 const ReadingListPage = lazy(() => import('@/modules/reading/ReadingListPage'))
 const ReadingSessionPage = lazy(() => import('@/modules/reading/ReadingSessionPage'))
 const WritingListPage = lazy(() => import('@/modules/writing/WritingListPage'))
 const WritingEditorPage = lazy(() => import('@/modules/writing/WritingEditorPage'))
 const WritingReportPage = lazy(() => import('@/modules/writing/WritingReportPage'))
+const DataPage = lazy(() => import('@/modules/data/DataPage'))
 const SettingsPage = lazy(() => import('@/modules/settings/SettingsPage'))
+const PlaceholderPage = lazy(() => import('@/components/PlaceholderPage'))
 
-const NAV_KEYS = ['dashboard', 'reading', 'writing', 'translation', 'listening', 'settings'] as const
+const NAV_KEYS = [
+  'dashboard',
+  'reading',
+  'writing',
+  'translation',
+  'listening',
+  'data',
+  'settings',
+] as const
 type NavKey = (typeof NAV_KEYS)[number]
 
 const NAV_ICONS: Record<NavKey, React.ReactNode> = {
@@ -33,6 +44,7 @@ const NAV_ICONS: Record<NavKey, React.ReactNode> = {
   writing: <EditOutlined />,
   translation: <TranslationOutlined />,
   listening: <CustomerServiceOutlined />,
+  data: <DatabaseOutlined />,
   settings: <SettingOutlined />,
 }
 
@@ -184,8 +196,7 @@ function Shell({ children }: { children: React.ReactNode }) {
 
 /** PlaceholderPage 需要 moduleKey;用路由参数适配 */
 function PlaceholderWithKey({ moduleKey }: { moduleKey: string }) {
-  const Page = DashboardPage
-  return <Page moduleKey={moduleKey} />
+  return <PlaceholderPage moduleKey={moduleKey} />
 }
 
 export default function App() {
@@ -193,14 +204,14 @@ export default function App() {
     <HashRouter>
       <Shell>
         <Routes>
-          <Route path="/" element={<PlaceholderWithKey moduleKey="dashboard" />} />
+          <Route path="/" element={<DashboardPage />} />
           <Route path="/dashboard" element={<Navigate to="/" replace />} />
           <Route path="/reading" element={<ReadingListPage />} />
           <Route path="/reading/:passageId" element={<ReadingSessionPage />} />
           <Route path="/writing" element={<WritingListPage />} />
           <Route path="/writing/write/:topicId" element={<WritingEditorPage />} />
           <Route path="/writing/report/:essayId" element={<WritingReportPage />} />
-          <Route path="/writing" element={<PlaceholderWithKey moduleKey="writing" />} />
+          <Route path="/data" element={<DataPage />} />
           <Route path="/translation" element={<PlaceholderWithKey moduleKey="translation" />} />
           <Route path="/listening" element={<PlaceholderWithKey moduleKey="listening" />} />
           <Route path="/settings" element={<SettingsPage />} />

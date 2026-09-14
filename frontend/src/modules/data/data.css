@@ -1,0 +1,238 @@
+/* ————— 仪表盘:学习账本 ————— */
+.dash-page {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.ledger {
+  margin-top: 24px;
+  border-top: 1px solid var(--hairline);
+}
+.ledger-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--hairline);
+}
+.ledger-label {
+  font-size: 15px;
+  color: var(--ink);
+}
+.ledger-dots {
+  flex: 1;
+  border-bottom: 1px dotted #c9bda6;
+  transform: translateY(-4px);
+  min-width: 24px;
+}
+.ledger-value {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--walnut-deep);
+  text-transform: uppercase;
+  margin: 30px 0 12px;
+}
+
+/* 7 日条带:墨条,当日胡桃木 */
+.week-strip {
+  display: flex;
+  gap: 18px;
+  align-items: flex-end;
+  padding: 4px 4px 14px;
+  border-bottom: 1px solid var(--hairline);
+}
+.week-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 44px;
+}
+.week-track {
+  height: 96px;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--hairline);
+}
+.week-min {
+  font-size: 11px;
+  color: var(--ink-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+.week-fill {
+  width: 26px;
+  height: 100%;
+  background: var(--ink);
+  opacity: 0.82;
+  border-radius: 2px 2px 0 0;
+  transform-origin: bottom;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.week-fill.is-today {
+  background: var(--walnut);
+  opacity: 1;
+}
+.week-label {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* 错题本 */
+.wrong-row {
+  display: flex;
+  gap: 16px;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--hairline);
+  align-items: flex-start;
+}
+.wrong-row.is-resolved {
+  opacity: 0.55;
+}
+.wrong-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wrong-stem {
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+.wrong-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+}
+.wrong-explain {
+  border-top: 1px dotted var(--hairline);
+  padding-top: 6px;
+  margin-top: 4px;
+}
+.wrong-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+}
+.wrong-resolved-mark {
+  color: var(--walnut-deep);
+}
+.wrong-hint {
+  display: block;
+  margin-top: 12px;
+  font-size: 12.5px;
+}
+
+/* ————— 数据管理:档案面板 ————— */
+.data-page {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.data-panel {
+  background: var(--paper-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 20px;
+}
+.data-panel-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.data-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.data-preview {
+  margin-top: 14px;
+}
+.data-preview summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--walnut-deep);
+}
+.data-preview pre {
+  max-height: 320px;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.6;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  padding: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.data-import-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.data-strategy-label {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.data-paste {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+.data-paste:focus-visible {
+  outline: 2px solid var(--walnut);
+}
+.data-errors {
+  margin-top: 14px;
+  border: 1px solid var(--walnut);
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: rgba(138, 90, 59, 0.05);
+}
+.data-errors ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  word-break: break-all;
+}
+.data-outcome table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.data-outcome th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--ink-soft);
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--hairline-strong);
+}
+.data-outcome td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--hairline);
+  font-variant-numeric: tabular-nums;
+}
+.data-danger {
+  border-color: var(--walnut);
+}

@@ -9,7 +9,84 @@
     "writing": "Writing",
     "translation": "Translation",
     "listening": "Listening",
+    "data": "Data",
     "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Your study ledger: accuracy, writing average, vocabulary and time — all stored on this device.",
+    "readingAccuracy": "Reading accuracy",
+    "writingAvg": "Writing average",
+    "noteCount": "Vocabulary size",
+    "totalTime": "Total study time",
+    "last7": "Last 7 days · minutes per day",
+    "wrongBook": "Wrong-question book",
+    "weekday": {
+      "0": "Su",
+      "1": "Mo",
+      "2": "Tu",
+      "3": "We",
+      "4": "Th",
+      "5": "Fr",
+      "6": "Sa"
+    }
+  },
+  "wrongbook": {
+    "empty": "The wrong-question book is empty — go read a few passages.",
+    "retry": "Retry",
+    "resolve": "Mastered",
+    "hint": "{{n}} wrong questions awaiting review; retry or mark mastered to clear them."
+  },
+  "data": {
+    "title": "Data",
+    "subtitle": "Export and import all of your study data: JSON is the machine-authoritative format (full restore), xlsx is a human-readable report.",
+    "export": {
+      "title": "Export",
+      "hint": "The JSON backup contains everything for device migration and restore; for privacy, the API key never leaves the export.",
+      "json": "Download JSON backup",
+      "xlsx": "Download xlsx report",
+      "preview": "Preview JSON (first 20k chars)"
+    },
+    "import": {
+      "title": "Import",
+      "hint": "Choose or paste a JSON backup. Every record is validated first; a failed validation rejects the whole file — nothing is half-written.",
+      "chooseFile": "Choose JSON file",
+      "pastePlaceholder": "…or paste the full JSON backup here",
+      "strategy": "Conflict strategy",
+      "skip": "Skip existing",
+      "overwrite": "Overwrite",
+      "start": "Start import",
+      "noInput": "Choose a file or paste JSON first",
+      "parseFailed": "JSON parse failed: {{reason}}",
+      "rejected": "Backup failed validation — import rejected (per-issue):",
+      "outcome": "Import complete",
+      "table": "Table",
+      "found": "In backup",
+      "written": "Written",
+      "skippedCol": "Skipped",
+      "done": "Import complete"
+    },
+    "tables": {
+      "passages": "Passages",
+      "questions": "Questions",
+      "topics": "Writing topics",
+      "essays": "Essays",
+      "essayReviews": "Essay reviews",
+      "practiceRecords": "Practice records",
+      "wrongQuestions": "Wrong questions",
+      "translationExercises": "Translation exercises",
+      "notes": "Vocabulary",
+      "studySessions": "Study sessions",
+      "aiConversations": "Tutor conversations",
+      "settings": "Settings"
+    },
+    "danger": {
+      "title": "Danger zone",
+      "hint": "Erase all study data (essays, records, wrong questions, vocabulary, time); the built-in library and settings are kept. Restore later from a JSON backup.",
+      "confirm": "Erase all study data? This cannot be undone (unless you have a backup).",
+      "action": "Erase study data",
+      "done": "Study data erased"
+    }
   },
   "placeholder": {
     "title": "Under construction",
