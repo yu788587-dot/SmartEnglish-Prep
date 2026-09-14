@@ -71,6 +71,20 @@
       "hint": "提示:循环本句 = 把 A/B 钉在当前句两端;纯文本字幕先用“钉起点”标注每句起点,即可句级循环。练习时长自动计入台账。"
     }
   },
+  "tutor": {
+    "title": "AI 助教",
+    "fab": "助教",
+    "clear": "清空会话",
+    "empty": "问点什么吧——语法、词汇、学习规划都可以。当前页面会作为上下文告知助教。",
+    "placeholder": "向助教提问…(Enter 发送,Shift+Enter 换行)",
+    "send": "发送",
+    "needConfig": "还没有配置 AI 服务。去设置页填入 API Key 后即可使用助教。",
+    "roles": {
+      "default": "通用学习助手",
+      "strict-examiner": "严厉的雅思考官",
+      "encouraging-tutor": "鼓励型四六级老师"
+    }
+  },
   "data": {
     "title": "数据管理",
     "subtitle": "导出与导入你的全部学习数据:JSON 是机器权威格式(可完整恢复),xlsx 是给人看的报表。",

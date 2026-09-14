@@ -71,6 +71,20 @@
       "hint": "Tip: Loop sentence pins A/B to the current cue; for plain-text subtitles pin each start first. Session time is tracked automatically."
     }
   },
+  "tutor": {
+    "title": "AI Tutor",
+    "fab": "Tutor",
+    "clear": "Clear chat",
+    "empty": "Ask anything — grammar, vocabulary, study planning. Your current page is passed to the tutor as context.",
+    "placeholder": "Ask the tutor… (Enter to send, Shift+Enter for a new line)",
+    "send": "Send",
+    "needConfig": "No AI service configured yet. Add your API key in Settings to use the tutor.",
+    "roles": {
+      "default": "General study assistant",
+      "strict-examiner": "Strict IELTS examiner",
+      "encouraging-tutor": "Encouraging CET tutor"
+    }
+  },
   "data": {
     "title": "Data",
     "subtitle": "Export and import all of your study data: JSON is the machine-authoritative format (full restore), xlsx is a human-readable report.",

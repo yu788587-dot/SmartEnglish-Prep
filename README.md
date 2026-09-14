@@ -19,7 +19,7 @@ Local-first · Works in browser & on Android (APK) · Bring your own LLM key
 | Data 数据管理 | ✅ M3 | 错题本、学习时长统计、JSON/xlsx 导入导出(带校验与事务回滚) |
 | Translation 翻译 | ✅ M4 | 中英对照练习,AI 偏差高亮与表达优化 |
 | Listening 听力 | ✅ M5 | 倍速/AB 循环/逐句精听,字幕对照 |
-| AI Tutor 助教 | 🔜 M6 | 场景化全局 AI 助教,可自定义角色(严厉考官/鼓励型老师) |
+| AI Tutor 助教 | ✅ M6 | 场景化全局 AI 助教,可自定义角色(严厉考官/鼓励型老师) |
 
 ## 🏗 Architecture / 架构
 

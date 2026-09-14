@@ -14,6 +14,8 @@ import {
 import { useTranslation } from 'react-i18next'
 import { useSettings, type UiLang } from './stores/settings'
 import { SERIF_FONT } from './theme/tokens'
+import TutorDrawer from './components/TutorDrawer'
+import { CustomerServiceOutlined as TutorIcon } from '@ant-design/icons'
 
 const { Sider, Header, Content } = Layout
 
@@ -66,6 +68,7 @@ function Shell({ children }: { children: React.ReactNode }) {
   const screens = Grid.useBreakpoint()
   const isMobile = !screens.md
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [tutorOpen, setTutorOpen] = useState(false)
 
   const menuItems = useMemo(
     () =>
@@ -193,6 +196,16 @@ function Shell({ children }: { children: React.ReactNode }) {
           </Suspense>
         </Content>
       </Layout>
+      <button
+        type="button"
+        className="tutor-fab"
+        onClick={() => setTutorOpen(true)}
+        aria-label={t('tutor.title')}
+      >
+        <TutorIcon />
+        {t('tutor.fab')}
+      </button>
+      <TutorDrawer open={tutorOpen} onClose={() => setTutorOpen(false)} />
     </Layout>
   )
 }
