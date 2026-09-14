@@ -83,7 +83,7 @@ export async function chat(
 export async function chatJson<T>(
   config: AiConfig,
   messages: ChatMessage[],
-  schema: z.ZodType<T>,
+  schema: z.ZodType<T, z.ZodTypeDef, unknown>,
   opts: ChatOptions = {},
 ): Promise<{ ok: true; data: T } | { ok: false; rawText: string }> {
   let lastRaw = ''

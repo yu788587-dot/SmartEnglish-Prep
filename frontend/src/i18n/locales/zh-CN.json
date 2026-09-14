@@ -65,6 +65,68 @@
       "error": "AI 请求失败"
     }
   },
+  "writing": {
+    "list": {
+      "title": "写作 · 话题库",
+      "subtitle": "选一道题进入稿纸:写作自动保存,交卷后 AI 按官方评分标准逐句批改。",
+      "myEssays": "我的作文",
+      "words": "词",
+      "reviewed": "批改",
+      "empty": "话题库为空"
+    },
+    "exam": {
+      "ielts_t2": "雅思大作文 · Task 2",
+      "ielts_t1": "雅思小作文 · Task 1",
+      "cet4": "四级写作",
+      "cet6": "六级写作"
+    },
+    "editor": {
+      "back": "话题库",
+      "submit": "交卷批改",
+      "grading": "批改中…",
+      "words": "词",
+      "saved": "已自动保存",
+      "tooShort": "再多写几句再交卷吧(至少 20 词)",
+      "needConfig": "还没有配置 AI 服务。去设置页填入 API Key 后即可批改。",
+      "degradedNote": "AI 未返回结构化结果,已保存原始输出",
+      "placeholder": "Start writing here… 在此开始你的作文…"
+    },
+    "report": {
+      "title": "批改报告",
+      "back": "话题库",
+      "overall": "总评分",
+      "band": "档位",
+      "summary": "总评",
+      "sentences": "逐句点评",
+      "polished": "润色",
+      "vocab": "词汇升级",
+      "regrade": "重新批改",
+      "regraded": "已重新批改",
+      "viewEssay": "编辑原文",
+      "noReview": "这篇作文还没有批改记录,回到编辑页交卷即可获得批改。",
+      "degraded": "AI 未返回结构化结果,以下为原始输出:"
+    },
+    "dims": {
+      "TR": "任务回应",
+      "CC": "连贯衔接",
+      "LR": "词汇资源",
+      "GRA": "语法多样与准确"
+    },
+    "issues": {
+      "grammar": "语法",
+      "collocation": "搭配",
+      "logic": "逻辑",
+      "word-choice": "用词",
+      "other": "其他"
+    },
+    "bandDesc": {
+      "1": "条理不清,思路紊乱,语言支离破碎",
+      "2": "基本切题,表达思想不清楚,连贯性差",
+      "3": "基本切题,有些地方表达不清楚,语言错误相当多",
+      "4": "切题,表达思想清楚,文字连贯,但有少量语言错误",
+      "5": "切题,表达思想清楚,文字通顺连贯,基本无语言错误"
+    }
+  },
   "settings": {
     "title": "设置",
     "general": "通用",

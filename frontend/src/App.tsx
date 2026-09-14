@@ -19,6 +19,9 @@ const { Sider, Header, Content } = Layout
 const DashboardPage = lazy(() => import('@/components/PlaceholderPage'))
 const ReadingListPage = lazy(() => import('@/modules/reading/ReadingListPage'))
 const ReadingSessionPage = lazy(() => import('@/modules/reading/ReadingSessionPage'))
+const WritingListPage = lazy(() => import('@/modules/writing/WritingListPage'))
+const WritingEditorPage = lazy(() => import('@/modules/writing/WritingEditorPage'))
+const WritingReportPage = lazy(() => import('@/modules/writing/WritingReportPage'))
 const SettingsPage = lazy(() => import('@/modules/settings/SettingsPage'))
 
 const NAV_KEYS = ['dashboard', 'reading', 'writing', 'translation', 'listening', 'settings'] as const
@@ -194,6 +197,9 @@ export default function App() {
           <Route path="/dashboard" element={<Navigate to="/" replace />} />
           <Route path="/reading" element={<ReadingListPage />} />
           <Route path="/reading/:passageId" element={<ReadingSessionPage />} />
+          <Route path="/writing" element={<WritingListPage />} />
+          <Route path="/writing/write/:topicId" element={<WritingEditorPage />} />
+          <Route path="/writing/report/:essayId" element={<WritingReportPage />} />
           <Route path="/writing" element={<PlaceholderWithKey moduleKey="writing" />} />
           <Route path="/translation" element={<PlaceholderWithKey moduleKey="translation" />} />
           <Route path="/listening" element={<PlaceholderWithKey moduleKey="listening" />} />

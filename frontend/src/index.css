@@ -1,3 +1,46 @@
+/* ————— 设计 token(全局):纸感世界的变量与浏览器原生面 ————— */
+:root {
+  --font-serif: 'Literata Variable', Georgia, 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC',
+    SimSun, serif;
+  --font-sans:
+    -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,
+    sans-serif;
+  --paper: #f7f3ec;
+  --paper-raised: #fffdf8;
+  --ink: #2b2622;
+  --ink-soft: #5d5347;
+  --hairline: #e2d9c8;
+  --walnut: #8a5a3b;
+  --walnut-deep: #6e4429;
+}
+
+::selection {
+  background: rgba(138, 90, 59, 0.22);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cfc2ab transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #cfc2ab;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*:focus-visible {
+  outline: 2px solid var(--walnut);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+input,
+textarea {
+  caret-color: var(--walnut-deep);
+}
+
 html,
 body,
 #root {

@@ -1,0 +1,46 @@
+{
+  "topics": [
+    {
+      "id": "topic-ielts-t2-1",
+      "examType": "ielts_t2",
+      "category": "Education",
+      "prompt": "Some people believe that universities should only offer places to students with the highest grades, while others think access should be open to all school leavers. Discuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. Write at least 250 words."
+    },
+    {
+      "id": "topic-ielts-t2-2",
+      "examType": "ielts_t2",
+      "category": "Technology",
+      "prompt": "Online shopping is replacing visits to physical stores. Do the advantages of this development outweigh the disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. Write at least 250 words."
+    },
+    {
+      "id": "topic-ielts-t2-3",
+      "examType": "ielts_t2",
+      "category": "Society",
+      "prompt": "Many cities invest in public art, such as murals and sculptures in the street. Some argue this money would be better spent on housing. To what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. Write at least 250 words."
+    },
+    {
+      "id": "topic-cet4-1",
+      "examType": "cet4",
+      "category": "Education",
+      "prompt": "Directions: For this part, you are allowed 30 minutes to write an essay on the importance of lifelong learning. You should write at least 120 words but no more than 180 words."
+    },
+    {
+      "id": "topic-cet4-2",
+      "examType": "cet4",
+      "category": "Society",
+      "prompt": "Directions: For this part, you are allowed 30 minutes to write an essay on why more young people choose to live with their parents after graduation. You should write at least 120 words but no more than 180 words."
+    },
+    {
+      "id": "topic-cet6-1",
+      "examType": "cet6",
+      "category": "Technology",
+      "prompt": "Directions: For this part, you are allowed 30 minutes to write an essay on the impact of short-form videos on deep reading. You should write at least 150 words but no more than 200 words."
+    },
+    {
+      "id": "topic-cet6-2",
+      "examType": "cet6",
+      "category": "Education",
+      "prompt": "Directions: For this part, you are allowed 30 minutes to write an essay on whether universities should make internships a compulsory part of the degree. You should write at least 150 words but no more than 200 words."
+    }
+  ]
+}

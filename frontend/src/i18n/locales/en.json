@@ -65,6 +65,68 @@
       "error": "AI request failed"
     }
   },
+  "writing": {
+    "list": {
+      "title": "Writing · Topics",
+      "subtitle": "Pick a topic and write on the page: drafts save automatically, and the AI grades sentence by sentence against official rubrics.",
+      "myEssays": "My essays",
+      "words": "words",
+      "reviewed": "Graded",
+      "empty": "The topic library is empty"
+    },
+    "exam": {
+      "ielts_t2": "IELTS Task 2",
+      "ielts_t1": "IELTS Task 1",
+      "cet4": "CET-4 Writing",
+      "cet6": "CET-6 Writing"
+    },
+    "editor": {
+      "back": "Topics",
+      "submit": "Submit for grading",
+      "grading": "Grading…",
+      "words": "words",
+      "saved": "Autosaved",
+      "tooShort": "Write a few more sentences first (at least 20 words)",
+      "needConfig": "No AI service configured yet. Add your API key in Settings to enable grading.",
+      "degradedNote": "The AI response was not structured; raw output was saved",
+      "placeholder": "Start writing here… 在此开始你的作文…"
+    },
+    "report": {
+      "title": "Grading report",
+      "back": "Topics",
+      "overall": "Overall",
+      "band": "Band",
+      "summary": "Summary",
+      "sentences": "Sentence review",
+      "polished": "Polished",
+      "vocab": "Vocabulary upgrades",
+      "regrade": "Regrade",
+      "regraded": "Regraded",
+      "viewEssay": "Edit essay",
+      "noReview": "This essay has not been graded yet. Submit it from the editor to get a report.",
+      "degraded": "The AI response was not structured; showing raw output:"
+    },
+    "dims": {
+      "TR": "Task Response",
+      "CC": "Coherence & Cohesion",
+      "LR": "Lexical Resource",
+      "GRA": "Grammatical Range & Accuracy"
+    },
+    "issues": {
+      "grammar": "Grammar",
+      "collocation": "Collocation",
+      "logic": "Logic",
+      "word-choice": "Word choice",
+      "other": "Other"
+    },
+    "bandDesc": {
+      "1": "Disorganised ideas, fragmented language",
+      "2": "Off track in places, unclear expression, poor cohesion",
+      "3": "Basically on topic, sometimes unclear, many language errors",
+      "4": "On topic, clear expression, coherent, with a few errors",
+      "5": "On topic, clear and fluent, virtually error-free"
+    }
+  },
   "settings": {
     "title": "Settings",
     "general": "General",

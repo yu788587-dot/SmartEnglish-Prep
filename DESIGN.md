@@ -237,8 +237,16 @@ SmartEnglish-Prep 的界面是一间安静的纸上书房:阅读练习发生在�
 ### Signature: AI 透视镜(签名交互)
 选中正文文字(≤400 字符)即浮现胶囊触发钮;展开为 380px Paper Raised 面板(12px 圆角、墨色柔影):衬线小标题"AI 解读" + 11px 全大写栏目标签 + 三种结构化视图——词(24px 衬线词头 + 音标 + 词义/搭配/例句)、短语(译文 + 释义 + 用法)、句(译文 + 骨架 + 从句左规线列表 + 笔记)。降级与恢复态是一等公民:未配置给出"去设置"的路径,出错可重试,校验失败降级渲染纯文本(lens-raw)不崩。入场 180ms(触发钮)/ 200ms(面板)cubic-bezier(0.16,1,0.3,1),translateY(4px)+ scale(0.97)→1,transform-origin top left;Esc 与点击外部关闭。
 
+### Signature: 稿纸编辑器(写作页,M2)
+一页排印的稿纸,不是表单:题目引言坐在 Paper Raised 圆角块(衬线 16px/1.8);正文 textarea 无边框透明底,直接坐在纸上(衬线 17px/1.9,与阅读正文同律),自动增高(整页滚动,无内部滚动条、无 resize 握把);书眉行 = 返回 + 分类题名 + 实时字数(tabular-nums,达最低词数转胡桃木深)+ 唯一实心主钮"交卷批改";停笔 1 秒自动保存,左下 12px 三级墨标注"已自动保存"。无工具栏、无字数弹窗、无 Modal——写作时只有稿纸与题目。
+
+### Signature: 朱批报告(写作报告页,M2)
+总分是书页边上的大衬线数字(56px,雅思 /9、CET /15),旁注 model 与时间(13px 柔墨);雅思四维是 150px 名称行 + 4px 胡桃木进度条(Track Hairline Soft #E9E2D5)+ 22px 衬线分值的连续规线行;CET 用 1px 胡桃木边档位徽章(衬线)。逐句点评:原句衬线 16px,问题片段以胡桃木水洗 rgba(138,90,59,0.14) + 1px 胡桃木下划线标记;问题行 = 1px 规线胶囊标签(语法/搭配/逻辑/用词)+ "原文片段 → 建议 · 解释";润色句坐在 Paper Raised 块、1px 胡桃木左边线、11px 全大写"润色"栏目标签;词汇升级为 1px 胡桃木边胶囊(衬线,箭头三级墨)。重批与降级(纯文本纸片)是一等公民。
+
 ### Named Rules
 **单次编排法则 (The One Orchestrated Moment Rule).** 透视镜入场是页面唯一的编排动效;其余一切过渡都是 160–240ms 的状态反馈(悬停 160ms、进度条 240ms)。
+
+**Token 全局法则 (The World Token Rule).** 设计 token(:root 变量)与浏览器原生面主题只住在全局 index.css——任何惰性模块(路由级 chunk)都无权私有世界变量;M2 判例:写作页曾因 :root 定义在 reading.css 而丢掉全部变量(胡桃木条隐形、衬线回退)。
 
 ## Do's and Don'ts
 
@@ -263,7 +271,7 @@ SmartEnglish-Prep 的界面是一间安静的纸上书房:阅读练习发生在�
 Finish review 对照度台账(实测):题库副题 5.39:1;来源注(provenance note)5.58:1;导航选中 7.47:1;界面家具文字 6.2–17.6:1;禁用 ~3.4–3.9:1;toast 成功 token ~8.2:1(token 验证,无光栅证据)。
 
 遗留问题(向前携带):
-1. 旁注栏题型分组芯片存在重复标签("单选 ×1" 出现两次)——M2 需消歧(如标注题号区间)。
+1. ~~旁注栏题型分组芯片存在重复标签~~ 已在 M2 消歧:芯片标签改为题型 + 题号区间("单选 1" / "判断 2–3" / "单选 4")。
 2. 移动端滚动条需要一次干净截图验证。
 
-证据集:`.impeccable/review/{desktop-library.png, desktop.png, mobile.png, lens-open.png}`。
+证据集:`.impeccable/review/{desktop-library.png, desktop.png, mobile.png, lens-open.png, desktop-editor.png, desktop-report.png}`。

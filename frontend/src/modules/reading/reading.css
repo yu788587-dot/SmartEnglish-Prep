@@ -1,44 +1,5 @@
 /* ————— 沉浸纸感阅读风 · Reading surface ————— */
-
-:root {
-  --font-serif: 'Literata Variable', Georgia, 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC',
-    SimSun, serif;
-  --paper: #f7f3ec;
-  --paper-raised: #fffdf8;
-  --ink: #2b2622;
-  --ink-soft: #5d5347;
-  --hairline: #e2d9c8;
-  --walnut: #8a5a3b;
-  --walnut-deep: #6e4429;
-}
-
-/* 浏览器原生面也属于设计:选区、焦点环、滚动条、插入符 */
-::selection {
-  background: rgba(138, 90, 59, 0.22);
-}
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #cfc2ab transparent;
-}
-*::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-*::-webkit-scrollbar-thumb {
-  background: #cfc2ab;
-  border-radius: 5px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
-*:focus-visible {
-  outline: 2px solid var(--walnut);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-input,
-textarea {
-  caret-color: var(--walnut-deep);
-}
+/* 设计 token 与浏览器原生面样式在全局 index.css(:root 全局变量,惰性模块不可私有) */
 
 /* ————— 目录页(题库列表)— TOC leaders 书目样式 ————— */
 .reading-list {

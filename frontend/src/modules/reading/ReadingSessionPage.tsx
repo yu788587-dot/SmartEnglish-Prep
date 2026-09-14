@@ -99,14 +99,17 @@ export default function ReadingSessionPage() {
     ? questions.filter((q) => isCorrectAnswer(q, answers[q.id])).length
     : 0
 
-  // 连续同型题合并为一组,生成旁注栏的题型分组导航
+  // 连续同型题合并为一组,生成旁注栏的题型分组导航(标签带题号区间消歧)
   const groups = useMemo(() => {
     if (!questions) return []
-    const g: { type: Question['type']; firstId: string; count: number }[] = []
+    const g: { type: Question['type']; firstId: string; count: number; start: number }[] = []
     for (const q of questions) {
       const last = g[g.length - 1]
-      if (last && last.type === q.type) last.count += 1
-      else g.push({ type: q.type, firstId: q.id, count: 1 })
+      if (last && last.type === q.type) {
+        last.count += 1
+      } else {
+        g.push({ type: q.type, firstId: q.id, count: 1, start: questions.indexOf(q) + 1 })
+      }
     }
     return g
   }, [questions])
@@ -249,11 +252,14 @@ export default function ReadingSessionPage() {
               <span style={{ width: `${total ? (answeredCount / total) * 100 : 0}%` }} />
             </div>
             <div className="side-groups">
-              {groups.map((g) => (
-                <button key={g.type} type="button" onClick={() => scrollToGroup(g.firstId)}>
-                  {t(`reading.qtype.${g.type}`)} ×{g.count}
-                </button>
-              ))}
+              {groups.map((g) => {
+                const range = g.count > 1 ? `${g.start}–${g.start + g.count - 1}` : `${g.start}`
+                return (
+                  <button key={g.type + g.start} type="button" onClick={() => scrollToGroup(g.firstId)}>
+                    {t(`reading.qtype.${g.type}`)} {range}
+                  </button>
+                )
+              })}
             </div>
           </div>
           {submitted && (

@@ -1,6 +1,7 @@
-import seeds from '@/seeds/reading-seeds.json'
+import readingSeeds from '@/seeds/reading-seeds.json'
+import writingSeeds from '@/seeds/writing-topics.json'
 import { db, newId } from './index'
-import type { Passage, Question } from './types'
+import type { Passage, Question, Topic } from './types'
 
 /**
  * 内置题库幂等播种:按固定 seed id 判断,已有则跳过(不覆盖用户可能的修改)。
@@ -8,8 +9,8 @@ import type { Passage, Question } from './types'
  */
 export async function ensureSeeded(): Promise<void> {
   const now = new Date().toISOString()
-  await db.transaction('rw', [db.passages, db.questions], async () => {
-    for (const p of seeds.passages) {
+  await db.transaction('rw', [db.passages, db.questions, db.topics], async () => {
+    for (const p of readingSeeds.passages) {
       if (await db.passages.get(p.id)) continue
       const passage: Passage = {
         id: p.id,
@@ -22,7 +23,7 @@ export async function ensureSeeded(): Promise<void> {
       }
       await db.passages.put(passage)
     }
-    for (const q of seeds.questions) {
+    for (const q of readingSeeds.questions) {
       if (await db.questions.get(q.id)) continue
       const question: Question = {
         id: q.id,
@@ -35,6 +36,16 @@ export async function ensureSeeded(): Promise<void> {
         order: q.order,
       }
       await db.questions.put(question)
+    }
+    for (const t of writingSeeds.topics) {
+      if (await db.topics.get(t.id)) continue
+      const topic: Topic = {
+        id: t.id,
+        examType: t.examType as Topic['examType'],
+        prompt: t.prompt,
+        category: t.category,
+      }
+      await db.topics.put(topic)
     }
   })
 }
