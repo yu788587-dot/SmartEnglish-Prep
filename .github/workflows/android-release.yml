@@ -1,0 +1,50 @@
+name: Android Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  apk:
+    name: Build APK & Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: npm ci
+      - run: npm run build
+      - run: npx cap sync android
+      - name: Build debug APK (installable, sideload-ready)
+        working-directory: frontend/android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+      - name: Create GitHub Release with APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          cp android/app/build/outputs/apk/debug/app-debug.apk "SmartEnglish-Prep-${TAG}.apk"
+          gh release create "$TAG" "SmartEnglish-Prep-${TAG}.apk" \
+            --title "SmartEnglish-Prep ${TAG}" \
+            --notes "AI-powered IELTS / CET prep platform · AI 驱动的雅思/四六级备考平台
+
+  Download the APK below (debug-signed, sideload-ready: allow install from unknown sources, then open).
+  下载下方 APK 即可安装(调试签名,允许安装未知来源应用后打开)。
+
+  - All data stays on your device; configure your AI key in Settings after first launch.
+  - 所有数据保存在设备本地;首次启动后在设置页配置 AI Key。
+  - Desktop use: npm ci && npm run dev (or host frontend/dist anywhere)."
