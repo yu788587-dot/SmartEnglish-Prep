@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "SmartEnglish-Prep",
+    "tagline": "AI-powered IELTS / CET prep platform"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "reading": "Reading",
+    "writing": "Writing",
+    "translation": "Translation",
+    "listening": "Listening",
+    "settings": "Settings"
+  },
+  "placeholder": {
+    "title": "Under construction",
+    "comingSoon": "This module will arrive in an upcoming milestone. Stay tuned."
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "language": "Language",
+    "ai": "AI Service",
+    "aiHint": "Works with any OpenAI-compatible service (DeepSeek, SiliconFlow, Qwen, Kimi, Ollama...). Your key never leaves this device.",
+    "preset": "Provider preset",
+    "baseUrl": "API base URL",
+    "apiKey": "API Key",
+    "model": "Model",
+    "save": "Save",
+    "saved": "Saved",
+    "loadFailed": "Failed to load config",
+    "presetDeepSeek": "DeepSeek (official)",
+    "presetSiliconFlow": "SiliconFlow",
+    "presetCustom": "Custom"
+  }
+}

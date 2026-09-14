@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "SmartEnglish-Prep",
+    "tagline": "AI 驱动的雅思 / 四六级备考平台"
+  },
+  "nav": {
+    "dashboard": "仪表盘",
+    "reading": "阅读",
+    "writing": "写作",
+    "translation": "翻译",
+    "listening": "听力",
+    "settings": "设置"
+  },
+  "placeholder": {
+    "title": "建设中",
+    "comingSoon": "该模块将在后续里程碑中上线,敬请期待。"
+  },
+  "settings": {
+    "title": "设置",
+    "general": "通用",
+    "language": "界面语言",
+    "ai": "AI 服务配置",
+    "aiHint": "支持任意 OpenAI 兼容服务(DeepSeek、SiliconFlow、通义、Kimi、Ollama 等)。Key 仅保存在你的设备本地。",
+    "preset": "服务商预设",
+    "baseUrl": "API 地址 (base_url)",
+    "apiKey": "API Key",
+    "model": "模型",
+    "save": "保存",
+    "saved": "已保存",
+    "loadFailed": "配置读取失败",
+    "presetDeepSeek": "DeepSeek 官方",
+    "presetSiliconFlow": "SiliconFlow 硅基流动",
+    "presetCustom": "自定义"
+  }
+}

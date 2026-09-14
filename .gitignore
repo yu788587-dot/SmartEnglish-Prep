@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Build output
+dist/
+build/
+backend/app.db
+*.db
+
+# Android / iOS (Capacitor, added in M8)
+android/
+ios/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Test / coverage
+coverage/
+.pytest_cache/
+.ruff_cache/
