@@ -24,6 +24,8 @@ const WritingListPage = lazy(() => import('@/modules/writing/WritingListPage'))
 const WritingEditorPage = lazy(() => import('@/modules/writing/WritingEditorPage'))
 const WritingReportPage = lazy(() => import('@/modules/writing/WritingReportPage'))
 const DataPage = lazy(() => import('@/modules/data/DataPage'))
+const TranslationListPage = lazy(() => import('@/modules/translation/TranslationListPage'))
+const TranslationWorkPage = lazy(() => import('@/modules/translation/TranslationWorkPage'))
 const SettingsPage = lazy(() => import('@/modules/settings/SettingsPage'))
 const PlaceholderPage = lazy(() => import('@/components/PlaceholderPage'))
 
@@ -212,7 +214,8 @@ export default function App() {
           <Route path="/writing/write/:topicId" element={<WritingEditorPage />} />
           <Route path="/writing/report/:essayId" element={<WritingReportPage />} />
           <Route path="/data" element={<DataPage />} />
-          <Route path="/translation" element={<PlaceholderWithKey moduleKey="translation" />} />
+          <Route path="/translation" element={<TranslationListPage />} />
+          <Route path="/translation/work/:id" element={<TranslationWorkPage />} />
           <Route path="/listening" element={<PlaceholderWithKey moduleKey="listening" />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

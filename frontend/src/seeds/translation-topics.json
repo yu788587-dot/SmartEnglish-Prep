@@ -1,0 +1,22 @@
+{
+  "topics": [
+    {
+      "id": "trans-topic-1",
+      "title": "中国高铁",
+      "sourceText": "中国的高铁网络发展迅速。目前,中国拥有世界上最大的高速铁路网,总里程超过四万公里。高铁不仅方便了人们的出行,也促进了沿线城市的经济发展。",
+      "refTranslation": "China's high-speed rail network is developing rapidly. At present, China owns the largest high-speed railway network in the world, with a total mileage of more than 40,000 kilometers. High-speed rail has not only made travel more convenient, but also promoted the economic development of cities along the lines."
+    },
+    {
+      "id": "trans-topic-2",
+      "title": "年轻人与传统节日",
+      "sourceText": "近年来,越来越多的年轻人开始关注传统节日。他们通过参加文化活动、学习传统手工艺等方式,加深了对中华文化的理解。这种现象表明,传统文化在现代社会仍然具有强大的生命力。",
+      "refTranslation": "In recent years, more and more young people have begun to pay attention to traditional festivals. By taking part in cultural activities and learning traditional crafts, they have deepened their understanding of Chinese culture. This phenomenon shows that traditional culture still has strong vitality in modern society."
+    },
+    {
+      "id": "trans-topic-3",
+      "title": "移动支付",
+      "sourceText": "随着科技的发展,移动支付已经渗透到人们生活的方方面面。无论是在大型商场还是街头小摊,人们都可以使用手机完成支付。这种支付方式因其便捷性而受到广泛欢迎。",
+      "refTranslation": "With the development of technology, mobile payment has penetrated into every aspect of people's lives. Whether in large shopping malls or street stalls, people can complete payment with their mobile phones. This payment method is widely welcomed for its convenience."
+    }
+  ]
+}

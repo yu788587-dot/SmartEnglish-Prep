@@ -57,6 +57,15 @@ class Topic(Base):
     category: Mapped[str | None] = mapped_column(String(64), default=None)
 
 
+class TranslationTopic(Base):
+    __tablename__ = "translation_topics"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    title: Mapped[str] = mapped_column(String(255))
+    source_text: Mapped[str] = mapped_column(Text)
+    ref_translation: Mapped[str] = mapped_column(Text)
+
+
 class Essay(Base):
     __tablename__ = "essays"
 

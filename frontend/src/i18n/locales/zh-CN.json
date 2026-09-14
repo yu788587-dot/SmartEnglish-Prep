@@ -204,6 +204,46 @@
       "5": "切题,表达思想清楚,文字通顺连贯,基本无语言错误"
     }
   },
+  "translation": {
+    "list": {
+      "title": "翻译 · 段落练习",
+      "subtitle": "CET 风格的中译英段落:对照参考译文,获得逐句偏差批注与润色。",
+      "history": "最近练习",
+      "graded": "已批改"
+    },
+    "work": {
+      "back": "题库",
+      "submit": "提交批改",
+      "grading": "批改中…",
+      "sourceLabel": "原文",
+      "draftLabel": "你的译文",
+      "placeholder": "Write your translation here… 在此写下你的译文…",
+      "tooShort": "译文太短了,先完整翻译整段吧",
+      "needConfig": "还没有配置 AI 服务。去设置页填入 API Key 后即可批改。",
+      "degradedNote": "AI 未返回结构化结果,已保存原始输出",
+      "historyTitle": "历史练习"
+    },
+    "result": {
+      "comment": "译审总评",
+      "overall": "润色全文",
+      "sentences": "逐句批注",
+      "reference": "参考",
+      "referenceFull": "参考译文"
+    },
+    "report": {
+      "polished": "润色",
+      "vocab": "词汇升级",
+      "degraded": "AI 未返回结构化结果,以下为原始输出:"
+    },
+    "issues": {
+      "mistranslation": "误译",
+      "omission": "漏译",
+      "addition": "增译",
+      "grammar": "语法",
+      "word-choice": "用词",
+      "style": "语体"
+    }
+  },
   "settings": {
     "title": "设置",
     "general": "通用",

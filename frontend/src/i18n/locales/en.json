@@ -204,6 +204,46 @@
       "5": "On topic, clear and fluent, virtually error-free"
     }
   },
+  "translation": {
+    "list": {
+      "title": "Translation · Paragraphs",
+      "subtitle": "CET-style Chinese-to-English paragraphs: work against a reference translation and get sentence-level deviation notes.",
+      "history": "Recent attempts",
+      "graded": "Graded"
+    },
+    "work": {
+      "back": "Library",
+      "submit": "Submit for review",
+      "grading": "Reviewing…",
+      "sourceLabel": "Source",
+      "draftLabel": "Your translation",
+      "placeholder": "Write your translation here… 在此写下你的译文…",
+      "tooShort": "Too short — translate the whole paragraph first",
+      "needConfig": "No AI service configured yet. Add your API key in Settings to enable review.",
+      "degradedNote": "The AI response was not structured; raw output was saved",
+      "historyTitle": "Past attempt"
+    },
+    "result": {
+      "comment": "Examiner's comment",
+      "overall": "Polished version",
+      "sentences": "Sentence notes",
+      "reference": "Reference",
+      "referenceFull": "Reference translation"
+    },
+    "report": {
+      "polished": "Polished",
+      "vocab": "Vocabulary upgrades",
+      "degraded": "The AI response was not structured; showing raw output:"
+    },
+    "issues": {
+      "mistranslation": "Mistranslation",
+      "omission": "Omission",
+      "addition": "Addition",
+      "grammar": "Grammar",
+      "word-choice": "Word choice",
+      "style": "Style"
+    }
+  },
   "settings": {
     "title": "Settings",
     "general": "General",

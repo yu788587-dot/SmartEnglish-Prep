@@ -250,6 +250,8 @@ SmartEnglish-Prep 的界面是一间安静的纸上书房:阅读练习发生在�
 
 **Token 全局法则 (The World Token Rule).** 设计 token(:root 变量)与浏览器原生面主题只住在全局 index.css——任何惰性模块(路由级 chunk)都无权私有世界变量;M2 判例:写作页曾因 :root 定义在 reading.css 而丢掉全部变量(胡桃木条隐形、衬线回退)。
 
+**状态随路由复位法则 (Route-State Reset).** 同一路由模式承载不同实体(如 /translation/work/:id)时,id 变化不重挂载组件——必须在 id 变化时显式复位草稿、标记与反馈状态;M4 判例:draftTouched 残留吞掉了历史练习的回填。
+
 ## Do's and Don'ts
 
 ### Do:

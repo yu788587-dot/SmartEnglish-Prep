@@ -82,6 +82,13 @@ export interface WrongQuestion {
   resolved: boolean
 }
 
+export interface TranslationTopic {
+  id: string
+  title: string
+  sourceText: string
+  refTranslation: string
+}
+
 export interface TranslationExercise {
   id: string
   userId: string

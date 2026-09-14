@@ -1,7 +1,8 @@
 import readingSeeds from '@/seeds/reading-seeds.json'
 import writingSeeds from '@/seeds/writing-topics.json'
+import translationSeeds from '@/seeds/translation-topics.json'
 import { db, newId } from './index'
-import type { Passage, Question, Topic } from './types'
+import type { Passage, Question, Topic, TranslationTopic } from './types'
 
 /**
  * 内置题库幂等播种:按固定 seed id 判断,已有则跳过(不覆盖用户可能的修改)。
@@ -9,7 +10,7 @@ import type { Passage, Question, Topic } from './types'
  */
 export async function ensureSeeded(): Promise<void> {
   const now = new Date().toISOString()
-  await db.transaction('rw', [db.passages, db.questions, db.topics], async () => {
+  await db.transaction('rw', [db.passages, db.questions, db.topics, db.translationTopics], async () => {
     for (const p of readingSeeds.passages) {
       if (await db.passages.get(p.id)) continue
       const passage: Passage = {
@@ -46,6 +47,16 @@ export async function ensureSeeded(): Promise<void> {
         category: t.category,
       }
       await db.topics.put(topic)
+    }
+    for (const tt of translationSeeds.topics) {
+      if (await db.translationTopics.get(tt.id)) continue
+      const topic: TranslationTopic = {
+        id: tt.id,
+        title: tt.title,
+        sourceText: tt.sourceText,
+        refTranslation: tt.refTranslation,
+      }
+      await db.translationTopics.put(topic)
     }
   })
 }
