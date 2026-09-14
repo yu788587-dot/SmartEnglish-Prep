@@ -15,6 +15,56 @@
     "title": "Under construction",
     "comingSoon": "This module will arrive in an upcoming milestone. Stay tuned."
   },
+  "reading": {
+    "list": {
+      "title": "Reading Library",
+      "subtitle": "Pick a passage for close reading: answer, submit, and select any text to summon the AI Lens.",
+      "questions": "questions",
+      "best": "Best",
+      "empty": "The library is empty. Please try again later."
+    },
+    "levels": {
+      "ielts": "IELTS",
+      "cet6": "CET-6",
+      "cet4": "CET-4",
+      "general": "General"
+    },
+    "session": {
+      "back": "Library",
+      "submit": "Submit",
+      "retake": "Retake",
+      "submittedToast": "Attempt recorded",
+      "score": "Accuracy",
+      "yourAnswer": "Your answer",
+      "correctAnswer": "Correct answer",
+      "answered": "Answered",
+      "points": "1 point each · {{n}} total"
+    },
+    "qtype": {
+      "mcq": "MCQ",
+      "tfng": "T/F/NG",
+      "match": "Matching",
+      "gap": "Gap fill"
+    },
+    "lens": {
+      "trigger": "AI Lens",
+      "loading": "Analysing…",
+      "senses": "Definitions",
+      "examples": "Examples",
+      "collocations": "Collocations",
+      "translation": "Translation",
+      "skeleton": "Sentence skeleton",
+      "clauses": "Clause breakdown",
+      "usage": "Usage",
+      "notes": "Exam notes",
+      "save": "Save to vocabulary",
+      "saved": "Saved to vocabulary",
+      "degraded": "The AI response was not structured; showing raw output:",
+      "needConfig": "No AI service configured yet. Add your API key in Settings to use the Lens.",
+      "retry": "Retry",
+      "error": "AI request failed"
+    }
+  },
   "settings": {
     "title": "Settings",
     "general": "General",

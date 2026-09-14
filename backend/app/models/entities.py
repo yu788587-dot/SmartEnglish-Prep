@@ -91,6 +91,8 @@ class PracticeRecord(Base):
     question_id: Mapped[str] = mapped_column(ForeignKey("questions.id"))
     passage_id: Mapped[str] = mapped_column(ForeignKey("passages.id"))
     module: Mapped[str] = mapped_column(String(16))
+    # 一次交卷产生的所有记录共享同一 attempt_id,用于统计每次得分
+    attempt_id: Mapped[str | None] = mapped_column(String(36), default=None)
     user_answer_json: Mapped[str] = mapped_column(Text, default="null")
     is_correct: Mapped[bool] = mapped_column(Boolean, default=False)
     duration_s: Mapped[int] = mapped_column(Integer, default=0)

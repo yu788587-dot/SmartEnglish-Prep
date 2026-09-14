@@ -64,6 +64,8 @@ export interface PracticeRecord {
   questionId: string
   passageId: string
   module: Module
+  /** 一次交卷产生的所有记录共享同一 attemptId,用于统计每次得分 */
+  attemptId: string
   userAnswer: unknown
   isCorrect: boolean
   durationS: number

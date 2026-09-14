@@ -15,6 +15,56 @@
     "title": "建设中",
     "comingSoon": "该模块将在后续里程碑中上线,敬请期待。"
   },
+  "reading": {
+    "list": {
+      "title": "阅读题库",
+      "subtitle": "选一篇文章开始精读:做题、判分,并随时选中任意文字唤起 AI 透视镜。",
+      "questions": "题",
+      "best": "最佳",
+      "empty": "题库为空,请稍后再试。"
+    },
+    "levels": {
+      "ielts": "雅思",
+      "cet6": "六级",
+      "cet4": "四级",
+      "general": "通用"
+    },
+    "session": {
+      "back": "题库",
+      "submit": "交卷",
+      "retake": "再刷一遍",
+      "submittedToast": "已记录本次成绩",
+      "score": "正确率",
+      "yourAnswer": "你的答案",
+      "correctAnswer": "正确答案",
+      "answered": "已答",
+      "points": "每题 1 分 · 共 {{n}} 分"
+    },
+    "qtype": {
+      "mcq": "单选",
+      "tfng": "判断",
+      "match": "匹配",
+      "gap": "填空"
+    },
+    "lens": {
+      "trigger": "AI 解读",
+      "loading": "解读中…",
+      "senses": "释义",
+      "examples": "例句",
+      "collocations": "常见搭配",
+      "translation": "译文",
+      "skeleton": "句子主干",
+      "clauses": "成分拆解",
+      "usage": "用法",
+      "notes": "考点提示",
+      "save": "存入生词本",
+      "saved": "已存入生词本",
+      "degraded": "AI 未返回结构化结果,以下为原始输出:",
+      "needConfig": "还没有配置 AI 服务。去设置页填入 API Key 后即可使用透视镜。",
+      "retry": "重试",
+      "error": "AI 请求失败"
+    }
+  },
   "settings": {
     "title": "设置",
     "general": "通用",

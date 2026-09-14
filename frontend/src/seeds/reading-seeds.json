@@ -1,0 +1,195 @@
+{
+  "passages": [
+    {
+      "id": "seed-p1",
+      "title": "The Economics of Sleep",
+      "module": "reading",
+      "level": "ielts",
+      "source": "SmartEnglish-Prep original (synthetic practice text)",
+      "contentMd": "[A] For something we spend a third of our lives doing, sleep remains surprisingly poorly understood. What scientists do agree on is its economics: sleep is an investment, not a luxury. Laboratory studies consistently show that reaction time, memory consolidation and immune function all deteriorate after even mild restriction, while the costs — in accidents, lost productivity and healthcare — run into billions annually.\n\n[B] The modern workplace, however, still treats sleeplessness as a badge of honour. Surveys across industrialised countries find that a majority of professionals believe sleeping less than six hours is compatible with high performance. The evidence says otherwise: after seventeen hours awake, cognitive impairment matches that of legal drink-driving thresholds. Companies that have introduced later start times for younger employees, whose body clocks run late, report measurable gains in both output and retention.\n\n[C] Economists have begun to put a price on the bargain. One widely cited model estimates that extending average nightly sleep by under an hour could add tens of billions to a large economy's output each year. Individuals, meanwhile, undervalue rest precisely because its costs are delayed: the invoice for a short night arrives weeks later as illness, errors or burnout, long after the extra evening hour was spent."
+    },
+    {
+      "id": "seed-p2",
+      "title": "Why Cities Are Getting Hotter",
+      "module": "reading",
+      "level": "cet6",
+      "source": "SmartEnglish-Prep original (synthetic practice text)",
+      "contentMd": "[A] On a summer afternoon, the centre of a large city can be several degrees hotter than its leafy suburbs. Climatologists call this the urban heat island effect, and it is largely a material problem: asphalt and concrete absorb sunlight by day and release it slowly at night, so the city never fully cools.\n\n[B] The consequences are uneven. Neighbourhoods with the fewest trees — often the poorest — suffer the highest temperatures, and heat kills more people in a typical year than floods or storms. Hospitals record spikes in dehydration and cardiac complaints during heatwaves, and electricity grids strain as air-conditioning demand peaks, raising the risk of blackouts precisely when cooling is needed most.\n\n[C] Remedies exist, and many are inexpensive. Reflective roofing sends sunlight back into space instead of into the bedroom below; a street tree can cool the air around it by several degrees through shade and evaporation. Singapore now mandates green cover for new developments, while Medellín transformed thirty neglected corridors into shaded greenways, cutting local temperatures measurably.\n\n[D] Critics note a catch: air-conditioning, the most common response, simply moves heat outdoors while consuming vast amounts of power. The long-term answer, most researchers argue, is to design heat out of the city rather than to pump it from one room to another."
+    },
+    {
+      "id": "seed-p3",
+      "title": "The Story of Instant Noodles",
+      "module": "reading",
+      "level": "cet4",
+      "source": "SmartEnglish-Prep original (synthetic practice text)",
+      "contentMd": "[A] In the winter of 1958, a Taiwanese-Japanese businessman named Momofuku Ando stood in a garden shed in Osaka, ten months into an experiment his neighbours considered eccentric. Japan was still recovering from the war, and queues for fresh ramen stretched around street corners. Ando believed that convenient, affordable food could change how ordinary people lived.\n\n[B] His breakthrough was simple: flash-frying steamed noodles drives out their moisture, and without moisture food does not spoil. The result could sit on a shelf for months and be ready in three minutes. Priced at the same as a bowl of fresh ramen, \"Chicken Ramen\" initially confused shoppers — some cracked it into a bowl like eggs — until free samples and school lunches taught the country how to cook it.\n\n[C] Instant noodles became one of the most exported ideas of the twentieth century: global consumption now exceeds a hundred billion servings a year. Ando lived to ninety-six and reportedly ate his own product every day, insisting that his real secret was playing golf and going to bed early. The garden shed in Osaka is now a small museum."
+    }
+  ],
+  "questions": [
+    {
+      "id": "seed-p1-q1",
+      "passageId": "seed-p1",
+      "type": "mcq",
+      "order": 1,
+      "stem": "Which statement best captures the main point of paragraph B?",
+      "options": [
+        { "key": "A", "text": "Sleep deprivation is a problem confined to manual industries." },
+        { "key": "B", "text": "Workplace culture commonly misjudges the cost of sleeping less." },
+        { "key": "C", "text": "Later start times are suitable for employees of all ages." },
+        { "key": "D", "text": "Professionals sleep fewer hours than manual workers." }
+      ],
+      "answer": "B",
+      "explanation": "Paragraph B opens with 'the modern workplace still treats sleeplessness as a badge of honour' and then presents evidence that this belief is wrong — a culture misjudging the cost of less sleep. C is wrong because only younger employees (late body clocks) are mentioned; A and D are not supported."
+    },
+    {
+      "id": "seed-p1-q2",
+      "passageId": "seed-p1",
+      "type": "tfng",
+      "order": 2,
+      "stem": "After seventeen hours without sleep, cognitive impairment is comparable to being over the legal alcohol limit for driving.",
+      "options": [],
+      "answer": "TRUE",
+      "explanation": "Paragraph B states: 'after seventeen hours awake, cognitive impairment matches that of legal drink-driving thresholds.'"
+    },
+    {
+      "id": "seed-p1-q3",
+      "passageId": "seed-p1",
+      "type": "tfng",
+      "order": 3,
+      "stem": "All companies have adopted later start times for their younger employees.",
+      "options": [],
+      "answer": "FALSE",
+      "explanation": "Paragraph B says only that companies which have introduced later start times report gains — it does not say all companies have done so; in fact the trend is presented as an exception to prevailing culture."
+    },
+    {
+      "id": "seed-p1-q4",
+      "passageId": "seed-p1",
+      "type": "mcq",
+      "order": 4,
+      "stem": "In paragraph C, the word 'invoice' is used to mean …",
+      "options": [
+        { "key": "A", "text": "a hospital bill for treating burnout" },
+        { "key": "B", "text": "the delayed costs that insufficient sleep eventually charges" },
+        { "key": "C", "text": "the market price of sleep-related products" },
+        { "key": "D", "text": "a fee that employers pay to sleep clinics" }
+      ],
+      "answer": "B",
+      "explanation": "'The invoice for a short night arrives weeks later as illness, errors or burnout' — a metaphor for the delayed costs of sleeping too little."
+    },
+    {
+      "id": "seed-p2-q1",
+      "passageId": "seed-p2",
+      "type": "mcq",
+      "order": 1,
+      "stem": "According to paragraph A, the urban heat island effect is mainly caused by …",
+      "options": [
+        { "key": "A", "text": "traffic exhaust trapped between tall buildings" },
+        { "key": "B", "text": "building materials that absorb and slowly release heat" },
+        { "key": "C", "text": "the concentration of people and their activities" },
+        { "key": "D", "text": "reduced rainfall in city centres" }
+      ],
+      "answer": "B",
+      "explanation": "Paragraph A calls it 'largely a material problem: asphalt and concrete absorb sunlight by day and release it slowly at night'."
+    },
+    {
+      "id": "seed-p2-q2",
+      "passageId": "seed-p2",
+      "type": "tfng",
+      "order": 2,
+      "stem": "In a typical year, heat kills more people than floods and storms.",
+      "options": [],
+      "answer": "TRUE",
+      "explanation": "Paragraph B states: 'heat kills more people in a typical year than floods or storms'."
+    },
+    {
+      "id": "seed-p2-q3",
+      "passageId": "seed-p2",
+      "type": "tfng",
+      "order": 3,
+      "stem": "Medellín's green corridors were the first such project in the world.",
+      "options": [],
+      "answer": "NOT GIVEN",
+      "explanation": "Paragraph C only says Medellín transformed thirty corridors and cut local temperatures; no claim about being first is made."
+    },
+    {
+      "id": "seed-p2-q4",
+      "passageId": "seed-p2",
+      "type": "match",
+      "order": 4,
+      "stem": "an example of a city using regulation to increase greenery",
+      "options": [
+        { "key": "A", "text": "Paragraph A" },
+        { "key": "B", "text": "Paragraph B" },
+        { "key": "C", "text": "Paragraph C" },
+        { "key": "D", "text": "Paragraph D" }
+      ],
+      "answer": "C",
+      "explanation": "Paragraph C: 'Singapore now mandates green cover for new developments' — a regulatory measure."
+    },
+    {
+      "id": "seed-p2-q5",
+      "passageId": "seed-p2",
+      "type": "match",
+      "order": 5,
+      "stem": "a drawback of the most widely used cooling response",
+      "options": [
+        { "key": "A", "text": "Paragraph A" },
+        { "key": "B", "text": "Paragraph B" },
+        { "key": "C", "text": "Paragraph C" },
+        { "key": "D", "text": "Paragraph D" }
+      ],
+      "answer": "D",
+      "explanation": "Paragraph D: air-conditioning, 'the most common response', moves heat outdoors and consumes vast power — the drawback."
+    },
+    {
+      "id": "seed-p3-q1",
+      "passageId": "seed-p3",
+      "type": "mcq",
+      "order": 1,
+      "stem": "Why did Momofuku Ando begin his experiment?",
+      "options": [
+        { "key": "A", "text": "His neighbours asked him to solve the ramen shortage." },
+        { "key": "B", "text": "He believed cheap, convenient food could improve everyday life." },
+        { "key": "C", "text": "The government commissioned a new wartime food supply." },
+        { "key": "D", "text": "He wanted to open a museum about Japanese food." }
+      ],
+      "answer": "B",
+      "explanation": "Paragraph A ends: 'Ando believed that convenient, affordable food could change how ordinary people lived.'"
+    },
+    {
+      "id": "seed-p3-q2",
+      "passageId": "seed-p3",
+      "type": "tfng",
+      "order": 2,
+      "stem": "Flash-frying keeps instant noodles from spoiling by removing their moisture.",
+      "options": [],
+      "answer": "TRUE",
+      "explanation": "Paragraph B: 'flash-frying steamed noodles drives out their moisture, and without moisture food does not spoil.'"
+    },
+    {
+      "id": "seed-p3-q3",
+      "passageId": "seed-p3",
+      "type": "tfng",
+      "order": 3,
+      "stem": "Chicken Ramen was cheaper than a bowl of fresh ramen.",
+      "options": [],
+      "answer": "FALSE",
+      "explanation": "Paragraph B says it was 'Priced at the same as a bowl of fresh ramen' — its advantage was convenience, not price."
+    },
+    {
+      "id": "seed-p3-q4",
+      "passageId": "seed-p3",
+      "type": "mcq",
+      "order": 4,
+      "stem": "The phrase 'cracked it into a bowl like eggs' suggests that some early customers …",
+      "options": [
+        { "key": "A", "text": "did not know how to prepare the product" },
+        { "key": "B", "text": "preferred eating the noodles raw" },
+        { "key": "C", "text": "complained about the chicken flavour" },
+        { "key": "D", "text": "wanted a larger portion for the same price" }
+      ],
+      "answer": "A",
+      "explanation": "The detail illustrates shoppers' initial confusion — 'until free samples and school lunches taught the country how to cook it.'"
+    }
+  ]
+}

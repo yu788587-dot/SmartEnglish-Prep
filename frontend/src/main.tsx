@@ -6,6 +6,7 @@ import enUS from 'antd/locale/en_US'
 import App from './App'
 import { paperTheme } from './theme/tokens'
 import { useSettings } from './stores/settings'
+import '@fontsource-variable/literata'
 import './i18n'
 import './index.css'
 
