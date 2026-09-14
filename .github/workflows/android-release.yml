@@ -26,7 +26,8 @@ jobs:
           java-version: 21
       - run: npm ci
       - run: npm run build
-      - run: npx cap sync android
+      # android/ is gitignored (generated locally by `npx cap add android`), so a fresh checkout has no platform yet — `cap add` scaffolds and syncs it.
+      - run: npx cap add android
       - name: Build debug APK (installable, sideload-ready)
         working-directory: frontend/android
         run: |
