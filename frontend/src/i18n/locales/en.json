@@ -57,7 +57,8 @@
       "needSubtitle": "Paste subtitles (SRT or one sentence per line)",
       "subtitleHint": "Subtitles accept SRT, or plain text with one sentence per line (pin each sentence's start while playing). Audio stays on this device and is never uploaded.",
       "subtitlePlaceholder": "1\n00:00:01,000 --> 00:00:04,000 Hello and welcome…\n00:00:04,500 --> 00:00:08,000 Today we begin with…\nor one sentence per line",
-      "save": "Save material"
+      "save": "Save material",
+      "saved": "Material saved"
     },
     "work": {
       "back": "Materials",
@@ -381,6 +382,8 @@
       "hintInitial": "Show initial letter",
       "hintNone": "No hint",
       "shuffle": "Shuffle order",
+      "voice": "Voice",
+      "voiceAuto": "Auto (match accent)",
       "start": "Start dictation"
     },
     "run": {
@@ -405,6 +408,7 @@
     },
     "noVoice": "No English voice available — install an English speech pack in your system's text-to-speech settings.",
     "unsupported": "This browser or WebView does not support speech synthesis — dictation will have no audio.",
+    "empty": "No words in this pool yet — add a few in the notebook, or pick another pool.",
     "needAnswer": "Type what you hear first"
   },
   "settings": {

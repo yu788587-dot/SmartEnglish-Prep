@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { db, LOCAL_USER_ID, newId } from '@/db'
 import type { Note } from '@/db/types'
 import { gradeWord, isPendingReview } from '@/utils/srs'
+import { updatedAtOf } from '@/utils/words'
 import {
   cancelSpeech,
   isSpeechSupported,

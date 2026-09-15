@@ -57,7 +57,8 @@
       "needSubtitle": "请粘贴字幕(SRT 或每行一句的文本)",
       "subtitleHint": "字幕支持 SRT 格式,或每行一句的纯文本(文本行可用“钉起点”在播放中标注起点)。音频仅保存在本机,不会上传。",
       "subtitlePlaceholder": "1\n00:00:01,000 --> 00:00:04,000 Hello and welcome…\n00:00:04,500 --> 00:00:08,000 Today we begin with…\n或每行一句文本",
-      "save": "保存材料"
+      "save": "保存材料",
+      "saved": "材料已保存"
     },
     "work": {
       "back": "材料",
@@ -381,6 +382,8 @@
       "hintInitial": "显示首字母",
       "hintNone": "无提示",
       "shuffle": "随机顺序",
+      "voice": "语音",
+      "voiceAuto": "自动(按口音挑一个)",
       "start": "开始听写"
     },
     "run": {
@@ -405,6 +408,7 @@
     },
     "noVoice": "没有可用的英语语音,请在系统的文字转语音设置里安装英语语音包。",
     "unsupported": "当前浏览器或 WebView 不支持语音合成,听写将没有发音。",
+    "empty": "该范围内还没有单词——先去单词本加几个,或换个范围。",
     "needAnswer": "先写下你听到的拼写"
   },
   "settings": {
