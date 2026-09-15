@@ -1,0 +1,187 @@
+.words-page {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ————— 工具栏 ————— */
+.words-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 0 4px;
+}
+.words-search {
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+.words-filter-tags {
+  min-width: 180px;
+}
+
+/* ————— 词条行 ————— */
+.word-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--hairline);
+}
+.word-row:hover {
+  background: rgba(138, 90, 59, 0.03);
+}
+.word-row.is-mastered {
+  opacity: 0.6;
+}
+.word-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.word-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.word-term {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.word-phonetic {
+  font-size: 13px;
+  color: var(--walnut-deep);
+}
+.word-pos {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-tertiary);
+}
+.word-meaning {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.word-example {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-tertiary);
+  white-space: pre-line;
+}
+.word-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+.word-source {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--walnut-deep);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 4px;
+  padding: 0 5px;
+  align-self: center;
+}
+
+/* ————— 右侧:熟悉度 + 操作 ————— */
+.word-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  white-space: nowrap;
+}
+.mastery {
+  display: flex;
+  gap: 3px;
+}
+.mastery-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hairline-strong);
+}
+.mastery-dot.is-on {
+  background: var(--walnut);
+}
+.word-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.words-empty {
+  margin-top: 24px;
+}
+
+/* ————— 新增 / 编辑弹窗 ————— */
+.word-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+.word-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+.word-form-row {
+  display: flex;
+  gap: 12px;
+}
+.word-form-narrow {
+  max-width: 110px;
+}
+.word-form-label {
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+}
+.word-form-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.word-form-ai {
+  display: flex;
+  justify-content: flex-start;
+}
+.word-form-raw pre {
+  max-height: 180px;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.6;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.word-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .word-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .word-side {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+}

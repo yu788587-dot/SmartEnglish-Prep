@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button, Spin, Typography, message } from 'antd'
-import { ArrowLeftOutlined } from '@ant-design/icons'
+import { ArrowLeftOutlined, BookOutlined } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import { db, LOCAL_USER_ID, newId } from '@/db'
 import { ensureSeeded } from '@/db/seed'
@@ -12,6 +12,7 @@ import {
   translationFeedbackSchema,
   type TranslationFeedback,
 } from '@/schemas/translation'
+import { saveWord } from '@/utils/words'
 import i18n from '@/i18n'
 import './translation.css'
 
@@ -188,6 +189,22 @@ function TranslationResult({
   refTranslation: string
 }) {
   const { t } = useTranslation()
+  const [savedVocab, setSavedVocab] = useState<Record<string, true>>({})
+
+  async function saveVocab(word: string, gloss?: string) {
+    try {
+      const { merged } = await saveWord({
+        word,
+        meaning: gloss,
+        source: 'translation',
+        tags: ['translation'],
+      })
+      setSavedVocab((prev) => ({ ...prev, [word.toLowerCase()]: true }))
+      message.success(merged ? t('words.mergedToast') : t('words.savedToast'))
+    } catch (e) {
+      message.error(e instanceof Error ? e.message : String(e))
+    }
+  }
 
   function renderMarked(original: string, issues: TranslationFeedback['sentences'][number]['issues']) {
     const ranges: Array<{ start: number; end: number }> = []
@@ -271,6 +288,14 @@ function TranslationResult({
                 <small>→</small>
                 {v.to}
                 {v.gloss && <small>({v.gloss})</small>}
+                <Button
+                  type="text"
+                  size="small"
+                  icon={<BookOutlined />}
+                  disabled={savedVocab[v.to.toLowerCase()]}
+                  onClick={() => void saveVocab(v.to, v.gloss)}
+                  aria-label={t('words.save')}
+                />
               </span>
             ))}
           </div>

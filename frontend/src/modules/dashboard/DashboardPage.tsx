@@ -6,6 +6,7 @@ import { CheckOutlined, RedoOutlined } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import { db } from '@/db'
 import { ensureSeeded } from '@/db/seed'
+import { isMastered, isPendingReview } from '@/utils/srs'
 // 账本样式与数据页共用(ledger / week strip / wrong book 都在 ledger 样式表)
 import '../data/data.css'
 
@@ -92,7 +93,18 @@ export default function DashboardPage() {
       const idx = dayIndex.get(dayKey(s.startAt))
       if (idx !== undefined) days[idx].seconds += s.durationS
     }
-    return { readingAccuracy, writingAvg, noteCount: notes?.length ?? 0, totalSeconds, days }
+    // 单词本:排除已删除的墓碑记录
+    const aliveNotes = (notes ?? []).filter((n) => !n.deletedAt)
+
+    return {
+      readingAccuracy,
+      writingAvg,
+      noteCount: aliveNotes.length,
+      dueWords: aliveNotes.filter((n) => isPendingReview(n)).length,
+      masteredWords: aliveNotes.filter((n) => isMastered(n.mastery)).length,
+      totalSeconds,
+      days,
+    }
   }, [records, reviews, notes, sessions, t])
 
   const maxSeconds = Math.max(60, ...stats.days.map((d) => d.seconds))
@@ -138,6 +150,20 @@ export default function DashboardPage() {
           <span className="ledger-label">{t('dashboard.noteCount')}</span>
           <span className="ledger-dots" aria-hidden />
           <span className="ledger-value">{stats.noteCount}</span>
+        </div>
+        <div className="ledger-row">
+          <span className="ledger-label">
+            <Typography.Link onClick={() => navigate('/words?due=1')}>
+              {t('dashboard.dueWords')}
+            </Typography.Link>
+          </span>
+          <span className="ledger-dots" aria-hidden />
+          <span className="ledger-value">{stats.dueWords}</span>
+        </div>
+        <div className="ledger-row">
+          <span className="ledger-label">{t('dashboard.masteredWords')}</span>
+          <span className="ledger-dots" aria-hidden />
+          <span className="ledger-value">{stats.masteredWords}</span>
         </div>
         <div className="ledger-row">
           <span className="ledger-label">{t('dashboard.totalTime')}</span>

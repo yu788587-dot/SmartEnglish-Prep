@@ -1,0 +1,165 @@
+.dictation-page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ————— 设置面板 ————— */
+.dictation-setup {
+  margin-top: 20px;
+}
+.dictation-field {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--hairline);
+}
+.dictation-field-label {
+  font-size: 14px;
+  color: var(--ink);
+  min-width: 92px;
+}
+.dictation-field-hint {
+  font-size: 12px;
+  color: var(--ink-tertiary);
+}
+.dictation-start {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ————— 作答 ————— */
+.dictation-progress {
+  margin-top: 24px;
+}
+.dictation-player {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 36px 20px;
+  background: var(--paper-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+.dictation-player-btn {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline-strong);
+  background: var(--paper);
+  color: var(--walnut-deep);
+  font-size: 30px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition:
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    background 180ms ease;
+}
+.dictation-player-btn:hover {
+  background: var(--paper-raised);
+  transform: translateY(-1px);
+}
+.dictation-player-btn:focus-visible {
+  outline: 2px solid var(--walnut);
+  outline-offset: 3px;
+}
+.dictation-hint {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  min-height: 20px;
+  text-align: center;
+}
+.dictation-input {
+  margin-top: 20px;
+}
+.dictation-verdict {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--hairline);
+  background: var(--paper-raised);
+}
+.dictation-verdict.is-correct {
+  border-color: var(--walnut);
+}
+.dictation-verdict.is-wrong {
+  border-color: var(--ink-tertiary);
+}
+.dictation-verdict-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.dictation-verdict-term {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+}
+.dictation-verdict-mark {
+  font-size: 13px;
+}
+.dictation-verdict-mark.is-correct {
+  color: var(--walnut-deep);
+}
+.dictation-verdict-mark.is-wrong {
+  color: var(--ink);
+}
+.dictation-typed {
+  font-size: 13px;
+  color: var(--ink-tertiary);
+}
+.dictation-example {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  white-space: pre-line;
+}
+.dictation-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ————— 结算 ————— */
+.dictation-result {
+  margin-top: 28px;
+}
+.dictation-score {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-serif);
+}
+.dictation-score-number {
+  font-size: 44px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.dictation-score-scale {
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+.dictation-row {
+  display: flex;
+  gap: 12px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--hairline);
+  align-items: baseline;
+}
+.dictation-row-term {
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  min-width: 120px;
+}
+.dictation-row-answer {
+  font-size: 13px;
+  color: var(--ink-tertiary);
+}

@@ -2,7 +2,10 @@ import { z } from 'zod'
 
 /** 备份文件与各表记录的 Zod Schema(执行计划 6.2)。导入必须"先校验、后写入"。 */
 
-export const SCHEMA_VERSION = 1
+export const SCHEMA_VERSION = 2
+
+/** 可导入的备份版本。v2 起 notes 带音标/释义/SRS/墓碑;旧版归档仍须可读。 */
+export const SUPPORTED_SCHEMA_VERSIONS = [1, SCHEMA_VERSION] as const
 export const APP_ID = 'SmartEnglish-Prep'
 
 const iso = z.string().min(1)
@@ -95,9 +98,34 @@ export const noteSchema = z.object({
   id: idField,
   userId: idField,
   word: z.string(),
+  /** M9 起新增;v1 备份中没有这些键,故一律 nullish */
+  phonetic: z.string().nullish(),
+  meaning: z.string().nullish(),
+  pos: z.string().nullish(),
+  example: z.string().nullish(),
+  exampleZh: z.string().nullish(),
   context: z.string().nullish(),
   aiExplanation: z.unknown().nullish(),
   tags: z.array(z.string()).nullish(),
+  source: z.string().nullish(),
+  starred: z.boolean().nullish(),
+  mastery: z.number().nullish(),
+  reviewCount: z.number().nullish(),
+  lastReviewedAt: z.string().nullish(),
+  nextReviewAt: z.string().nullish(),
+  dictationWrong: z.number().nullish(),
+  createdAt: iso,
+  updatedAt: z.string().nullish(),
+  deletedAt: z.string().nullish(),
+})
+
+export const dictationRecordSchema = z.object({
+  id: idField,
+  userId: idField,
+  noteId: idField,
+  attemptId: idField,
+  userAnswer: z.string(),
+  isCorrect: z.boolean(),
   createdAt: iso,
 })
 
@@ -125,7 +153,7 @@ export const settingSchema = z.object({
 /** 备份文件结构(6.2)。AI 配置的 apiKey 导出时被抹除(隐私),导入时空值不覆盖本地。 */
 export const backupFileSchema = z.object({
   app: z.literal(APP_ID),
-  schemaVersion: z.literal(SCHEMA_VERSION),
+  schemaVersion: z.union([z.literal(1), z.literal(SCHEMA_VERSION)]),
   exportedAt: iso,
   data: z.object({
     passages: z.array(passageSchema),
@@ -137,6 +165,8 @@ export const backupFileSchema = z.object({
     wrongQuestions: z.array(wrongQuestionSchema),
     translationExercises: z.array(translationExerciseSchema),
     notes: z.array(noteSchema),
+    // v2 新增表:旧版备份里没有这个键,缺省为空数组以便继续导入
+    dictationRecords: z.array(dictationRecordSchema).default([]),
     studySessions: z.array(studySessionSchema),
     aiConversations: z.array(aiConversationSchema),
     settings: z.array(settingSchema),
@@ -156,6 +186,7 @@ export const BACKUP_TABLE_KEYS = [
   'wrongQuestions',
   'translationExercises',
   'notes',
+  'dictationRecords',
   'studySessions',
   'aiConversations',
   'settings',

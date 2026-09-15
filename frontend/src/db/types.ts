@@ -120,10 +120,35 @@ export interface Note {
   id: string
   userId: string
   word: string
+  /** 音标(IPA,不含斜杠);优先取 AI 透视镜结果 */
+  phonetic?: string
+  /** 简明中文释义;取自 AI 结果的首个义项,可手改 */
+  meaning?: string
+  /** 词性,如 n. / v. / adj. */
+  pos?: string
+  /** 例句(英文) */
+  example?: string
+  /** 例句译文 */
+  exampleZh?: string
   context?: string
   aiExplanation?: unknown
   tags?: string[]
+  /** 来源模块:reading / writing / translation / manual */
+  source?: string
+  /** 星标:优先进入复习与听写队列 */
+  starred?: boolean
+  /** SRS 档位 0–5;0 = 陌生,5 = 已掌握 */
+  mastery?: number
+  reviewCount?: number
+  lastReviewedAt?: string
+  nextReviewAt?: string
+  /** 听写累计错误次数,用于「常错词」排序 */
+  dictationWrong?: number
   createdAt: string
+  /** 增量合并依据;旧记录缺失时一律回落到 createdAt */
+  updatedAt?: string
+  /** 软删除墓碑:跨设备导入时不会「复活」已删词条 */
+  deletedAt?: string
 }
 
 export interface StudySession {
@@ -132,6 +157,18 @@ export interface StudySession {
   module: Module
   startAt: string
   durationS: number
+}
+
+export interface DictationRecord {
+  id: string
+  userId: string
+  /** → notes.id,听写的词条 */
+  noteId: string
+  /** 一次听写产生的所有记录共享同一 attemptId,用于统计本次正确率 */
+  attemptId: string
+  userAnswer: string
+  isCorrect: boolean
+  createdAt: string
 }
 
 export type RoleMode = string // 'strict-examiner' | 'encouraging-tutor' | 自定义

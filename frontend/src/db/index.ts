@@ -1,6 +1,7 @@
 import Dexie, { type EntityTable } from 'dexie'
 import type {
   AiConversation,
+  DictationRecord,
   Essay,
   EssayReview,
   ListeningMaterial,
@@ -35,6 +36,7 @@ export const db = new Dexie('SmartEnglishPrep') as Dexie & {
   aiConversations: EntityTable<AiConversation, 'id'>
   settings: EntityTable<Setting, 'key'>
   listeningMaterials: EntityTable<ListeningMaterial, 'id'>
+  dictationRecords: EntityTable<DictationRecord, 'id'>
 }
 
 db.version(1).stores({
@@ -86,6 +88,43 @@ db.version(3).stores({
   aiConversations: 'id, userId, roleMode, updatedAt',
   settings: 'key',
   listeningMaterials: 'id, userId, createdAt',
+})
+
+// v4: 单词本扩展字段(M9:音标/释义/SRS/墓碑)
+db.version(4).stores({
+  passages: 'id, module, level, createdAt',
+  questions: 'id, passageId, type',
+  topics: 'id, examType, category',
+  translationTopics: 'id',
+  essays: 'id, userId, topicId, createdAt',
+  essayReviews: 'id, essayId, createdAt',
+  practiceRecords: 'id, userId, questionId, passageId, module, isCorrect, createdAt',
+  wrongQuestions: 'id, recordId, questionId, nextReviewAt, resolved',
+  translationExercises: 'id, userId, createdAt',
+  notes: 'id, userId, word, createdAt, updatedAt, nextReviewAt, starred, deletedAt',
+  studySessions: 'id, userId, module, startAt',
+  aiConversations: 'id, userId, roleMode, updatedAt',
+  settings: 'key',
+  listeningMaterials: 'id, userId, createdAt',
+})
+
+// v5: 听写记录表(M10)
+db.version(5).stores({
+  passages: 'id, module, level, createdAt',
+  questions: 'id, passageId, type',
+  topics: 'id, examType, category',
+  translationTopics: 'id',
+  essays: 'id, userId, topicId, createdAt',
+  essayReviews: 'id, essayId, createdAt',
+  practiceRecords: 'id, userId, questionId, passageId, module, isCorrect, createdAt',
+  wrongQuestions: 'id, recordId, questionId, nextReviewAt, resolved',
+  translationExercises: 'id, userId, createdAt',
+  notes: 'id, userId, word, createdAt, updatedAt, nextReviewAt, starred, deletedAt',
+  studySessions: 'id, userId, module, startAt',
+  aiConversations: 'id, userId, roleMode, updatedAt',
+  settings: 'key',
+  listeningMaterials: 'id, userId, createdAt',
+  dictationRecords: 'id, userId, noteId, attemptId, isCorrect, createdAt',
 })
 
 /** 单用户模式下的固定 user_id,为多用户扩展预留。 */

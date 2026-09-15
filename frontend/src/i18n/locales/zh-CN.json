@@ -9,6 +9,7 @@
     "writing": "写作",
     "translation": "翻译",
     "listening": "听力",
+    "words": "单词",
     "data": "数据",
     "settings": "设置"
   },
@@ -18,6 +19,8 @@
     "readingAccuracy": "阅读正确率",
     "writingAvg": "写作平均分",
     "noteCount": "生词总量",
+    "dueWords": "待复习单词",
+    "masteredWords": "已掌握",
     "totalTime": "累计学习时长",
     "last7": "最近 7 天 · 每日分钟",
     "wrongBook": "错题本",
@@ -83,6 +86,71 @@
       "default": "通用学习助手",
       "strict-examiner": "严厉的雅思考官",
       "encouraging-tutor": "鼓励型四六级老师"
+    }
+  },
+  "words": {
+    "title": "单词本",
+    "subtitle": "阅读、写作、翻译里遇到的词都存这里;标记熟悉度,到期自动排队复习。",
+    "add": "新增单词",
+    "dictation": "开始听写",
+    "searchPlaceholder": "搜索词条或释义",
+    "tags": "标签",
+    "onlyDue": "只看待复习",
+    "sort": {
+      "recent": "最近更新",
+      "alpha": "字母序"
+    },
+    "source": {
+      "all": "全部来源",
+      "reading": "阅读",
+      "writing": "写作",
+      "translation": "翻译",
+      "manual": "手动添加"
+    },
+    "stats": {
+      "total": "单词总量",
+      "due": "待复习",
+      "mastered": "已掌握"
+    },
+    "known": "认得",
+    "forgot": "忘了",
+    "star": "星标",
+    "edit": "编辑",
+    "delete": "删除",
+    "deleteConfirm": "从单词本移除这个词?可用 JSON 备份恢复。",
+    "empty": "单词本还是空的——去阅读里选个词存进来吧。",
+    "noMatch": "没有匹配的单词,换个关键词试试。",
+    "listLabel": "词条",
+    "knownToast": "已记一功,下次复习排后",
+    "pronounce": "发音",
+    "forgotToast": "已重新排到最近复习",
+    "savedToast": "已存入单词本",
+    "mergedToast": "单词本已有该词,已合并",
+    "deletedToast": "已移除",
+    "save": "存入单词本",
+    "form": {
+      "title": "新增单词",
+      "editTitle": "编辑单词",
+      "word": "单词",
+      "wordPlaceholder": "如:expand",
+      "phonetic": "音标",
+      "pos": "词性",
+      "meaning": "释义",
+      "meaningPlaceholder": "v. 扩大;增加",
+      "example": "例句",
+      "examplePlaceholder": "The company plans to expand its business.",
+      "exampleZh": "例句译文",
+      "exampleZhPlaceholder": "该公司计划拓展业务。",
+      "tags": "标签",
+      "tagsPlaceholder": "输入后回车,如 cet6、高频",
+      "starred": "星标",
+      "aiFill": "AI 补全",
+      "filled": "已补全",
+      "aiFailed": "AI 未返回结构化结果",
+      "needConfig": "还没有配置 AI 服务。去设置页填入 API Key 后可一键补全。",
+      "save": "保存",
+      "cancel": "取消",
+      "wordRequired": "请先填写单词"
     }
   },
   "data": {
@@ -291,6 +359,53 @@
       "word-choice": "用词",
       "style": "语体"
     }
+  },
+  "dictation": {
+    "title": "单词听写",
+    "subtitle": "听发音、拼单词。发音走系统语音引擎,可离线;判分忽略大小写与连字符。",
+    "setup": {
+      "scope": "选词范围",
+      "scopeDue": "待复习",
+      "scopeStarred": "星标",
+      "scopeWrong": "常错词",
+      "scopeAll": "全部单词",
+      "count": "题量",
+      "available": "可用 {{n}} 词",
+      "accent": "口音",
+      "accentGB": "英音 en-GB",
+      "accentUS": "美音 en-US",
+      "rate": "语速",
+      "times": "每词朗读",
+      "hint": "提示",
+      "hintMeaning": "显示释义",
+      "hintInitial": "显示首字母",
+      "hintNone": "无提示",
+      "shuffle": "随机顺序",
+      "start": "开始听写"
+    },
+    "run": {
+      "replay": "再听一次",
+      "placeholder": "输入你听到的单词,Enter 提交",
+      "submit": "提交",
+      "next": "下一个",
+      "finish": "查看结果",
+      "exit": "退出",
+      "correct": "拼对了",
+      "wrong": "拼错了",
+      "yourAnswer": "你的拼写"
+    },
+    "result": {
+      "accuracy": "正确率",
+      "count": "答对",
+      "duration": "用时",
+      "wrongList": "错词",
+      "againWrong": "只练错词",
+      "again": "再来一组",
+      "back": "回到单词本"
+    },
+    "noVoice": "没有可用的英语语音,请在系统的文字转语音设置里安装英语语音包。",
+    "unsupported": "当前浏览器或 WebView 不支持语音合成,听写将没有发音。",
+    "needAnswer": "先写下你听到的拼写"
   },
   "settings": {
     "title": "设置",

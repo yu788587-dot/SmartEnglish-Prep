@@ -1,5 +1,6 @@
 import * as XLSX from 'xlsx'
 import { db } from '@/db'
+import type { Note } from '@/db/types'
 import { APP_ID, BACKUP_TABLE_KEYS, SCHEMA_VERSION, type BackupData, type BackupFile } from '@/schemas/backup'
 
 /** 导出:全表 → 备份对象。AI 配置的 apiKey 被抹除(隐私)。 */
@@ -14,6 +15,7 @@ export async function buildBackup(): Promise<BackupFile> {
     wrongQuestions,
     translationExercises,
     notes,
+    dictationRecords,
     studySessions,
     aiConversations,
     settings,
@@ -27,6 +29,7 @@ export async function buildBackup(): Promise<BackupFile> {
     db.wrongQuestions.toArray(),
     db.translationExercises.toArray(),
     db.notes.toArray(),
+    db.dictationRecords.toArray(),
     db.studySessions.toArray(),
     db.aiConversations.toArray(),
     db.settings.toArray(),
@@ -51,6 +54,7 @@ export async function buildBackup(): Promise<BackupFile> {
       wrongQuestions,
       translationExercises,
       notes,
+      dictationRecords,
       studySessions,
       aiConversations,
       settings: safeSettings,
@@ -128,14 +132,35 @@ export async function downloadXlsx(): Promise<void> {
   XLSX.utils.book_append_sheet(
     wb,
     XLSX.utils.json_to_sheet(
-      d.notes.map((n) => ({
-        创建: n.createdAt,
-        词条: n.word,
-        标签: (n.tags ?? []).join(', '),
-        释义摘要: typeof n.aiExplanation === 'object' && n.aiExplanation ? JSON.stringify(n.aiExplanation).slice(0, 200) : '',
-      })),
+      d.notes
+        .filter((n) => !n.deletedAt)
+        .map((n) => ({
+          创建: n.createdAt,
+          词条: n.word,
+          音标: n.phonetic ?? '',
+          释义: n.meaning ?? '',
+          熟悉度: `${n.mastery ?? 0}/5`,
+          复习次数: n.reviewCount ?? 0,
+          听写错误: n.dictationWrong ?? 0,
+          标签: (n.tags ?? []).join(', '),
+          来源: n.source ?? '',
+          释义摘要: typeof n.aiExplanation === 'object' && n.aiExplanation ? JSON.stringify(n.aiExplanation).slice(0, 200) : '',
+        })),
     ),
     '生词本',
+  )
+  const noteById = new Map(d.notes.map((n) => [n.id, n]))
+  XLSX.utils.book_append_sheet(
+    wb,
+    XLSX.utils.json_to_sheet(
+      d.dictationRecords.map((r) => ({
+        时间: new Date(r.createdAt).toLocaleString(),
+        词条: noteById.get(r.noteId)?.word ?? r.noteId,
+        你的拼写: r.userAnswer,
+        结果: r.isCorrect ? '✓' : '✗',
+      })),
+    ),
+    '听写记录',
   )
   XLSX.utils.book_append_sheet(
     wb,
@@ -149,6 +174,30 @@ export async function downloadXlsx(): Promise<void> {
     '学习时长',
   )
   XLSX.writeFile(wb, `smartenglish-prep-${stamp()}.xlsx`)
+}
+
+/**
+ * 兼容 v1 备份:回填 M9 新增字段,保证新旧记录在读取侧同构。
+ * 墓碑(deletedAt)原样保留——换设备时已删词条不能再复活。
+ */
+function normalizeNote(row: unknown): Note {
+  const n = row as Note
+  return {
+    ...n,
+    phonetic: n.phonetic ?? undefined,
+    meaning: n.meaning ?? undefined,
+    pos: n.pos ?? undefined,
+    example: n.example ?? undefined,
+    exampleZh: n.exampleZh ?? undefined,
+    context: n.context ?? undefined,
+    source: n.source ?? 'manual',
+    starred: n.starred ?? false,
+    mastery: n.mastery ?? 0,
+    reviewCount: n.reviewCount ?? 0,
+    dictationWrong: n.dictationWrong ?? 0,
+    updatedAt: n.updatedAt ?? n.createdAt,
+    deletedAt: n.deletedAt ?? undefined,
+  }
 }
 
 function stamp(): string {
@@ -187,6 +236,7 @@ export async function applyBackup(
     wrongQuestions: db.wrongQuestions,
     translationExercises: db.translationExercises,
     notes: db.notes,
+    dictationRecords: db.dictationRecords,
     studySessions: db.studySessions,
     aiConversations: db.aiConversations,
     settings: db.settings,
@@ -211,7 +261,7 @@ export async function applyBackup(
             continue
           }
         }
-        await store.put(row as never)
+        await store.put((key === 'notes' ? normalizeNote(row) : row) as never)
         written += 1
       }
       outcome.perTable.push({ key, found: rows.length, written, skipped })
@@ -231,6 +281,7 @@ export async function clearLearningData(): Promise<void> {
       db.wrongQuestions,
       db.translationExercises,
       db.notes,
+      db.dictationRecords,
       db.studySessions,
       db.aiConversations,
     ],
@@ -241,8 +292,9 @@ export async function clearLearningData(): Promise<void> {
         db.practiceRecords.clear(),
         db.wrongQuestions.clear(),
         db.translationExercises.clear(),
-        db.notes.clear(),
-        db.studySessions.clear(),
+      db.notes.clear(),
+      db.dictationRecords.clear(),
+      db.studySessions.clear(),
         db.aiConversations.clear(),
       ])
     },

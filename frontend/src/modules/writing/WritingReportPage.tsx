@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button, Spin, Typography, message } from 'antd'
-import { ArrowLeftOutlined } from '@ant-design/icons'
+import { ArrowLeftOutlined, BookOutlined } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import { db, newId } from '@/db'
 import type { ReviewIssue } from '@/schemas/grading'
@@ -14,6 +14,7 @@ import {
 } from '@/schemas/grading'
 import { AiNotConfiguredError } from '@/api/ai-client'
 import { gradeEssay } from '@/api/grading'
+import { saveWord } from '@/utils/words'
 import i18n from '@/i18n'
 import './writing.css'
 
@@ -67,6 +68,22 @@ export default function WritingReportPage() {
   )
 
   const [regrading, setRegrading] = useState(false)
+  const [savedVocab, setSavedVocab] = useState<Record<string, true>>({})
+
+  async function saveVocab(word: string, gloss?: string) {
+    try {
+      const { merged } = await saveWord({
+        word,
+        meaning: gloss,
+        source: 'writing',
+        tags: ['writing'],
+      })
+      setSavedVocab((prev) => ({ ...prev, [word.toLowerCase()]: true }))
+      message.success(merged ? t('words.mergedToast') : t('words.savedToast'))
+    } catch (e) {
+      message.error(e instanceof Error ? e.message : String(e))
+    }
+  }
 
   const feedback = useMemo<
     { degraded: false; data: EssayReviewData } | { degraded: true; raw: string } | null
@@ -244,6 +261,14 @@ export default function WritingReportPage() {
                     {v.from}
                     <small>→</small>
                     {v.to}
+                    <Button
+                      type="text"
+                      size="small"
+                      icon={<BookOutlined />}
+                      disabled={savedVocab[v.to.toLowerCase()]}
+                      onClick={() => void saveVocab(v.to)}
+                      aria-label={t('words.save')}
+                    />
                   </span>
                 ))}
               </div>

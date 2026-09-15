@@ -3,9 +3,9 @@ import { Button, Spin, Typography } from 'antd'
 import { BookOutlined, CloseOutlined, EnvironmentOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { db, LOCAL_USER_ID, newId } from '@/db'
 import { AiNotConfiguredError } from '@/api/ai-client'
 import { lensLookup } from '@/api/lens'
+import { saveWord } from '@/utils/words'
 import type { LensResult } from '@/schemas/lens'
 import i18n from '@/i18n'
 
@@ -89,14 +89,21 @@ export default function LensLayer({ selection, onClose }: Props) {
 
   async function saveToNotes() {
     if (!selection) return
-    const explanation = state.status === 'result' ? state.result : { raw: state.status === 'degraded' ? state.rawText : '' }
-    await db.notes.put({
-      id: newId(),
-      userId: LOCAL_USER_ID,
-      word: selection.text.slice(0, 80),
-      aiExplanation: explanation,
+    const result = state.status === 'result' ? state.result : null
+    const wordLens = result?.kind === 'word' ? result : null
+    await saveWord({
+      word: wordLens?.word ?? selection.text,
+      phonetic: wordLens?.phonetic,
+      pos: wordLens?.senses[0]?.pos,
+      meaning: wordLens?.senses
+        .map((s) => (s.pos ? `${s.pos} ${s.meaningZh}` : s.meaningZh))
+        .join('; '),
+      example: wordLens?.examples?.[0]?.en,
+      exampleZh: wordLens?.examples?.[0]?.zh,
+      context: selection.text,
+      source: 'reading',
       tags: ['reading'],
-      createdAt: new Date().toISOString(),
+      aiExplanation: result ?? { raw: state.status === 'degraded' ? state.rawText : '' },
     })
     setSaved(true)
   }

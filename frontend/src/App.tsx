@@ -3,6 +3,7 @@ import { HashRouter, Navigate, Route, Routes, useLocation, useNavigate } from 'r
 import { Button, Drawer, Grid, Layout, Menu, Select, Spin } from 'antd'
 import {
   BarChartOutlined,
+  BookOutlined,
   CustomerServiceOutlined,
   DatabaseOutlined,
   EditOutlined,
@@ -31,6 +32,8 @@ const TranslationWorkPage = lazy(() => import('@/modules/translation/Translation
 const ListeningListPage = lazy(() => import('@/modules/listening/ListeningListPage'))
 const ListeningWorkPage = lazy(() => import('@/modules/listening/ListeningWorkPage'))
 const SettingsPage = lazy(() => import('@/modules/settings/SettingsPage'))
+const WordsPage = lazy(() => import('@/modules/words/WordsPage'))
+const DictationPage = lazy(() => import('@/modules/dictation/DictationPage'))
 
 const NAV_KEYS = [
   'dashboard',
@@ -38,6 +41,7 @@ const NAV_KEYS = [
   'writing',
   'translation',
   'listening',
+  'words',
   'data',
   'settings',
 ] as const
@@ -49,13 +53,16 @@ const NAV_ICONS: Record<NavKey, React.ReactNode> = {
   writing: <EditOutlined />,
   translation: <TranslationOutlined />,
   listening: <CustomerServiceOutlined />,
+  words: <BookOutlined />,
   data: <DatabaseOutlined />,
   settings: <SettingOutlined />,
 }
 
 function currentNav(pathname: string): NavKey {
   const first = pathname.split('/')[1]
-  return (NAV_KEYS as readonly string[]).includes(first) ? (first as NavKey) : 'dashboard'
+  // 听写挂在独立路由上,但它是单词本的一种模式,高亮仍归「单词」
+  const key = first === 'dictation' ? 'words' : first
+  return (NAV_KEYS as readonly string[]).includes(key) ? (key as NavKey) : 'dashboard'
 }
 
 function Shell({ children }: { children: React.ReactNode }) {
@@ -228,6 +235,8 @@ export default function App() {
           <Route path="/listening" element={<ListeningListPage />} />
           <Route path="/listening/work/:id" element={<ListeningWorkPage />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/words" element={<WordsPage />} />
+          <Route path="/dictation" element={<DictationPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Shell>
