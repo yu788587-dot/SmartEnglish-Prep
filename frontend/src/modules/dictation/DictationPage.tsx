@@ -176,6 +176,15 @@ export default function DictationPage() {
       })
   }
 
+  /** 「只练错词」取词池:按最近更新倒序,刚从单词本改过的词排前面。 */
+  function wrongNotes(): Note[] {
+    return (sessionRecords ?? [])
+      .filter((r) => !r.isCorrect)
+      .map((r) => (notes ?? []).find((n) => n.id === r.noteId))
+      .filter((n): n is Note => Boolean(n))
+      .sort((a, b) => updatedAtOf(b).localeCompare(updatedAtOf(a)))
+  }
+
   function next() {
     setChecked(null)
     setAnswer('')
@@ -455,16 +464,7 @@ export default function DictationPage() {
 
           <div className="dictation-actions">
             {correctCount < total && (
-              <Button
-                onClick={() =>
-                  start(
-                    (sessionRecords ?? [])
-                      .filter((r) => !r.isCorrect)
-                      .map((r) => notes.find((n) => n.id === r.noteId))
-                      .filter((n): n is Note => Boolean(n)),
-                  )
-                }
-              >
+              <Button onClick={() => start(wrongNotes())}>
                 {t('dictation.result.againWrong')}
               </Button>
             )}
