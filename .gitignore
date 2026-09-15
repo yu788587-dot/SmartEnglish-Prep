@@ -37,3 +37,17 @@ coverage/
 
 # 自动化流水线状态(不入库)
 .automation/
+
+# 签名密钥与移动端凭据(做签名发布前先忽略,避免误提交)
+*.jks
+*.keystore
+*.p8
+*.p12
+*.mobileprovision
+google-services.json
+GoogleService-Info.plist
+
+# 本地文件与日志
+*.local
+*.log
+npm-debug.log*
